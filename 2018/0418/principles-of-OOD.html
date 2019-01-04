@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="S567GMP8WTiU6xnYIx-_2NsAkMacGPEX7eb1AuHcxag" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: true,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '2L6QORKI3M',
+      apiKey: '251d01638c5969177fcbbba54b3eaaff',
+      indexName: 'dev_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字搜索","hits_empty":"没有找到与 ${query} 相关的内容","hits_stats":"搜索到 ${hits} 条相关记录，共耗时 ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="设计模式也好，架构也好，都是为需求服务的；好的程序遵循的是设计原则，而不是设计模式。   本文主要分享对面向对象程序设计的设计原则的理解，以供想了解 OOD 设计原则的人士作参考。 主要内容包括：对设计原则和设计模式概念的理解，对 OOD 设计原则的理解，对继承和多态的理解。">
+<meta name="keywords" content="面向对象的设计原则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象的设计原则--一文带你理解清楚">
+<meta property="og:url" content="https://www.alankeene.com/2018/0418/principles-of-OOD.html">
+<meta property="og:site_name" content="Alan&#39;s Blog - Android">
+<meta property="og:description" content="设计模式也好，架构也好，都是为需求服务的；好的程序遵循的是设计原则，而不是设计模式。   本文主要分享对面向对象程序设计的设计原则的理解，以供想了解 OOD 设计原则的人士作参考。 主要内容包括：对设计原则和设计模式概念的理解，对 OOD 设计原则的理解，对继承和多态的理解。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-02T07:23:26.257Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象的设计原则--一文带你理解清楚">
+<meta name="twitter:description" content="设计模式也好，架构也好，都是为需求服务的；好的程序遵循的是设计原则，而不是设计模式。   本文主要分享对面向对象程序设计的设计原则的理解，以供想了解 OOD 设计原则的人士作参考。 主要内容包括：对设计原则和设计模式概念的理解，对 OOD 设计原则的理解，对继承和多态的理解。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Alan's Blog - Android" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://www.alankeene.com/2018/0418/principles-of-OOD.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>面向对象的设计原则--一文带你理解清楚 | Alan's Blog - Android</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117520670-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-117520670-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3c62c379ca18ccc5f87f4b4e86ec0f57";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Alan's Blog - Android</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">7</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">12</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">7</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于我</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-commonweal">
+    <a href="/404.html" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />公益 404</a>
+</li>
+
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/AlanKeene" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.alankeene.com/2018/0418/principles-of-OOD.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alan Keene">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alan's Blog - Android">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">面向对象的设计原则--一文带你理解清楚</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T13:20:42+08:00">2018-04-18</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/OOD设计原则/" itemprop="url" rel="index"><span itemprop="name">OOD设计原则</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/0418/principles-of-OOD.html" class="leancloud_visitors" data-flag-title="面向对象的设计原则--一文带你理解清楚">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">5.7k 字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">5 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>设计模式也好，架构也好，都是为需求服务的；好的程序遵循的是设计原则，而不是设计模式。 </p>
+</blockquote>
+<p>本文主要分享对面向对象程序设计的设计原则的理解，以供想了解 OOD 设计原则的人士作参考。</p>
+<p>主要内容包括：对设计原则和设计模式概念的理解，对 OOD 设计原则的理解，对继承和多态的理解。<a id="more"></a></p>
+<h2 id="什么是设计原则？什么是设计模式"><a href="#什么是设计原则？什么是设计模式" class="headerlink" title="什么是设计原则？什么是设计模式?"></a>什么是设计原则？什么是设计模式?</h2><h3 id="什么是设计原则？怎么理解设计原则？"><a href="#什么是设计原则？怎么理解设计原则？" class="headerlink" title="什么是设计原则？怎么理解设计原则？"></a>什么是设计原则？怎么理解设计原则？</h3><p>如果要做个比喻，设计原则就像我们的宪法，而设计模式就像我们具体的基于宪法的各部法律，如：劳动法、海商法等等。</p>
+<p>也就是说，设计原则是我们设计面向对象程序的纲领性指导，各种设计模式也是基于设计原则而设计的。</p>
+<h3 id="什么是设计模式？怎么理解设计模式？"><a href="#什么是设计模式？怎么理解设计模式？" class="headerlink" title="什么是设计模式？怎么理解设计模式？"></a>什么是设计模式？怎么理解设计模式？</h3><p>设计模式是帮助开发人员在设计应用程序或系统时，解决常见问题的正式最佳实践。</p>
+<p>也就是说，设计模式是无数前辈工程师们在日常编码过程中总结出来的一些经验，它告诉你在某种具体的需求场景下该用什么样的方式编写代码才会最好，写出来的代码扩展性和可维护性才会更强，代码更高级，解决的是具体的需求。 Java 的设计模式共有23种，分为3大类，有部分在实际工作中也不常用。</p>
+<p>但是，理论上设计模式可以有无数种，而并非23种，因为如上所述，设计模式解决的是具体某种需求场景的设计经验，而随着时间的推移和时代的变化，需求可以发生很多变化，而对应的设计模式理论上也可以被创造出来。</p>
+<p>而设计原则就那么几条，相对固定，只要按这几条原则去设计和组织你的代码，解决你的需求，理论上就是在创造一种新的设计模式，如果这种编码方式不属于那23条里面而且也没有人使用过的话。</p>
+<p>所以说，<strong>设计模式也好，架构也好，都是为需求服务的；好的程序遵循的是设计原则，而不是设计模式。</strong></p>
+<h2 id="我们应该怎样学习和掌握设计原则？"><a href="#我们应该怎样学习和掌握设计原则？" class="headerlink" title="我们应该怎样学习和掌握设计原则？"></a>我们应该怎样学习和掌握设计原则？</h2><p>在我们的日常工作中，初级工程师，甚至是高级工程师，在实际的编码工作中并不会真真切切的用到设计原则，用的更多的是设计模式去解决工作中具体的需求。</p>
+<p>也就是说，实际工作要求我们掌握的其实更多是<strong>设计模式</strong>，而并非<strong>设计原则</strong>。所以掌握设计模式是我们的重点，是向优秀工程师迈进的必备技能。</p>
+<h3 id="我们为什么还要学习和掌握设计原则呢？"><a href="#我们为什么还要学习和掌握设计原则呢？" class="headerlink" title="我们为什么还要学习和掌握设计原则呢？"></a>我们为什么还要学习和掌握设计原则呢？</h3><p>就像如果你不是立法机构的话，你似乎并不需要了解和掌握宪法，在日常生活中你碰到劳动相关问题了你就去了解劳动法，碰到海上贸易纠纷问题了你就去了解海商法即可。但是，这些具体的法律都是基于宪法的，如果你不了解宪法的话，你就不知道它们为什么是这样来设计的，虽然并不影响你用来解决实际问题，但你却不知道为什么。</p>
+<p>同理，学习和掌握设计原则的目的也是如此。而且更重要的是，其实设计原则很容易理解和掌握，因为基本原则也就 5 条。当你理解了设计原则，再回来理解设计模式时，就会理解他为什么要这样写代码？为什么这样写代码是更加好的，扩展性和可维护性是更强的？</p>
+<p>换句话说，在理解了设计原则的基础上去掌握设计模式，就会理解的更加透彻，而不仅仅是只会使用设计模式而不知道为什么要这样设计。也能以不变应万变，不变的是设计原则，变得是设计模式。</p>
+<p>而且，理解了设计原则再去学习设计模式，会相对容易记住和掌握，并大概率是以后都不会容易忘记。否则很有可能是这种情况：在工作中遇到问题去学习一下设计模式，看懂了用来解决了实际的需求，但过几天就忘了，设计模式相关的知识学了又忘，忘了又学，反反复复，好像总是掌握不了设计模式。笔者就经历过这样的一个过程，因为设计模式虽然只有23种，但涉及的相关知识点其实很多，要想想那可是多少人多少年来才总结出来的那么点经验啊，岂能是初学者一下就能完全掌握和记住的，单纯23种设计模式的写法和对应的使用场景都不容易理解和记忆。</p>
+<p>但如果你理解了设计原则，情况就会变得好些，在学习具体的某种设计模式的时候，你就会知道它用了什么设计原则，代码为什么是这样写的？这么写的好处是什么?</p>
+<h2 id="SOLID-设计原则"><a href="#SOLID-设计原则" class="headerlink" title="SOLID 设计原则"></a>SOLID 设计原则</h2><p>好，了解了为什么要学习设计原则，接下来就要学习和理解设计原则了。</p>
+<p>首先，面向对象的设计原则一共有几条？表述不一，江湖上有三种表述方法：有的说面向对象的七大原则，有的说六大原则，有的说五大原则。不过这只是不同的理解方式，对学习来说并不影响。</p>
+<p>不过笔者参阅了维基百科 <a href="https://zh.wikipedia.org/wiki/SOLID_(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1" target="_blank" rel="noopener">SOLID (面向对象设计)</a>) 的解释，笔者的理解方式是：面向对象程序设计有五条基本原则，其他两条原则也学习了解，但不在基本原则的表述里。</p>
+<p>而这五大基本原则，首字母简写就是 “SOLID” , 英文 “solid” 是固体的意思，固体的形态也意味着相对固定不变，很符合设计原则的思想，所以为了方便记忆，笔者也将面向对象的 SOLID 原则称为 “固体原则”。</p>
+<h3 id="S-Single-reponsibility-principle-单一职责原则"><a href="#S-Single-reponsibility-principle-单一职责原则" class="headerlink" title="S (Single reponsibility principle) - 单一职责原则"></a>S (Single reponsibility principle) - 单一职责原则</h3><p>概念：认为 “对象应该仅有一种单一功能”。</p>
+<p>换句话说，你在设计一个类的时候，应该有职责单一的特性，就是将一组相关性很高的函数、数据封装到一个类中。</p>
+<p>潜台词是：尽量拆分到最小单位，解决复用和组合的问题。</p>
+<h3 id="O-Open-closed-principle-开闭原则"><a href="#O-Open-closed-principle-开闭原则" class="headerlink" title="O (Open/closed principle) - 开闭原则"></a>O (Open/closed principle) - 开闭原则</h3><p>概念： 认为 “软件体应该是对于扩展是开放的，但对于修改是封闭” 的。</p>
+<p>什么意思呢？</p>
+<p>换句话说，一个类对于扩展是开放的，但对于修改是封闭的。如：我们升级、维护 APP 或系统需要增加新的功能时，应该尽量通过扩展去实现新的功能，而不是通过修改已有的代码来实现，以免带来一些难以发现的Bug。</p>
+<p>试想一下，如果你要给一个系统增加新的功能，你通过修改源代码来实现，为了让新增的功能模块能正常运行，改了很多源代码，这时集成到系统中一测试，发现整个系统无法正常运行了，而且这个系统是已经在线上运行为用户提供服务的，你怎么办？你还要百分之百的还原原来的源码吗？</p>
+<p>所以，开闭原则能帮我们避免一些修改风险。</p>
+<p>潜台词: 控制需求变动时的风险，缩小维护成本</p>
+<h3 id="L-Liskov-substitution-principle-里氏替换原则"><a href="#L-Liskov-substitution-principle-里氏替换原则" class="headerlink" title="L (Liskov substitution principle) - 里氏替换原则"></a>L (Liskov substitution principle) - 里氏替换原则</h3><p>概念： 认为 “程序中的对象应该是可以在不改变程序正确性的前提下被它的子类所替换的” 。</p>
+<p>本质上说，就是告诉我们要好好利用 <strong>继承</strong> 和 <strong>多态</strong>。</p>
+<p>从技术上简单的描述，就是以父类的形式声明的变量(或形参)，赋值为任何继承于这个父类的子类后不影响程序的执行。</p>
+<p>潜台词：尽量使用精准的抽象类或接口。</p>
+<p>代码举例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//窗口类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Window</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(View child)</span> </span>&#123;</span><br><span class="line">        child.onDraw(); <span class="comment">//调用抽象类View的抽象方法--onDraw方法	</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//抽象类View</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">View</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//测量视图的大小</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//继承抽象类View的子View,复写抽象方法onDraw()</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Button</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//绘制一个按钮</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//绘制文本</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>实例代码解释:</p>
+<p>Window 类中的 show 函数需要传入 View, 并且调用 View 对象的 <code>onDraw()</code> 方法，而每个继承于 View 的子类对象都要实现 <code>onDraw()</code> 方法，不存在继承于 View 却没实现 <code>onDraw()</code> 方法的子类对象(abstract方法必须实现)。我们在抽象类 View 的设计时就是运用了里氏替换原则。</p>
+<p>而当我们在调用窗口类 Window 的 <code>show()</code> 方法时，可以传入抽象类 View 的任何实现子类 <code>Button类</code> 或 <code>TextView类</code>，均不会影响程序的正常执行：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show(<span class="keyword">new</span> Button());</span><br><span class="line">或</span><br><span class="line">show(<span class="keyword">new</span> TextView());</span><br></pre></td></tr></table></figure></p>
+<p>这样，你就可以实现在窗口上绘制任意一个的视图的需求了，一旦有增加新的视图的需求时，你只需要继承抽象类view并实现它的抽象方法 <code>onDraw()</code> 即可，作为参数传入 Window 类的 <code>show()</code> 方法中，Window 类就可以帮你把它绘制出来。</p>
+<p>比如，你现在学习学累了，想在窗口上画个饼充饥，就可以实现一个画饼的子类：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cake</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//画个饼充饥</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//功能实现完了，然后作为参数传入 Windows 类的 show() 方法</span></span><br><span class="line">show(<span class="keyword">new</span> Cake());</span><br></pre></td></tr></table></figure></p>
+<p>其实，这种设计思想无处不在，你每天都能遇到，Android 中的 View 的绘制就是使用了这种思想。</p>
+<h4 id="如何理解多态和继承？"><a href="#如何理解多态和继承？" class="headerlink" title="如何理解多态和继承？"></a>如何理解多态和继承？</h4><p>多态的概念：同一个行为具有多个不同的表现形式或形态的能力。</p>
+<p>举例：Window类的 <code>show()</code> 方法都是调用 View.onDraw() 的功能，但 TextView 和 Button 各自的 <code>onDraw()</code> 方法的表现形式不一样。</p>
+<p>多态的好处：可以使程序有良好的扩展性，并可以对所有类的对象进行通用处理。用通俗的话说就是：一键修改，到处应用。</p>
+<p><strong>举例</strong>：实现抽象类 View 的抽象方法 <code>onDraw()</code> ,TextView 和 Button 实现了不同的绘制行为，即多态，扩展成不同的需求或功能。而与此同时，如果修改了抽象父类 View 的绘制行为，所有调用 View 的 Window 对象相应的 <code>show()</code> 行为也统一进行了更改。</p>
+<p>笔者想到我们的一句俚语，用来帮助理解继承和多态再合适不过了：<strong>“一母生九子，连母十个样”</strong>。</p>
+<p>“母”即父类，“九子”则继承自“母”这个父类，“连母十个样”：说明子类和父类都可以有不同的行为，也就是多态。</p>
+<p>注意：<strong>Java 中类只能单继承，但可以多实现</strong>。用俚语帮助理解就是：每个人只能有一个爸爸(单继承)，但可以有多个兄弟(多实现)。</p>
+<h3 id="I-Interface-segregation-principle-接口隔离原则"><a href="#I-Interface-segregation-principle-接口隔离原则" class="headerlink" title="I(Interface segregation principle) - 接口隔离原则"></a>I(Interface segregation principle) - 接口隔离原则</h3><p>概念：认为 “多个特定客户端接口要好于一个宽泛用途的接口”。</p>
+<p>也就是说，类之间的依赖关系应该建立在最小的接口上。其原则是将非常庞大的、臃肿的接口拆分成更小的更具体的接口。</p>
+<p>潜台词： 尽量拆分成功能更具体的接口。</p>
+<h3 id="D-Dependency-inversion-principle-依赖反转原则"><a href="#D-Dependency-inversion-principle-依赖反转原则" class="headerlink" title="D(Dependency inversion principle) - 依赖反转原则"></a>D(Dependency inversion principle) - 依赖反转原则</h3><p>概念：认为 “一个方法应该遵从依赖于抽象而不是一个实例” 。我们常用的依赖注入就是该原则的一种实现方式。</p>
+<p>也就是说，要实现解耦，使得高层次的模块不依赖于低层次模块的具体实现细节，二者都应该依赖其抽象(抽象类或接口)。</p>
+<p>其实，在我们用的 Java 语言中，抽象就是指接口或者抽象类，二者都是不能直接实例化的；细节就是实现类，实现接口或者继承抽象类而产生的类，就是细节。</p>
+<p>使用 Java 语言描述就简单了，就是各个模块之间相互传递的参数声明为抽象类型，而不是声明为具体的类。</p>
+<p>潜台词: 要面向抽象编程，解耦调用者和被调用者。</p>
+<p>OK, 至此五大基本原则就解释完了，剩下两条原则我们也了解一下，帮助理解。</p>
+<h3 id="迪米特原则-Law-of-Demeter"><a href="#迪米特原则-Law-of-Demeter" class="headerlink" title="迪米特原则 - Law of Demeter"></a>迪米特原则 - Law of Demeter</h3><p>也称：最少知识原则，认为 “一个对象应当对其他对象有尽可能少的了解”。</p>
+<p>也就是说，一个类应该对自己调用的类的实现细节知道的越少越好。</p>
+<p>举例：假设类 A 实现了某个功能，类 B 需要调用类 A 去执行这个功能，那么类 A 应该只暴露一个方法(函数)给类 B 去调用即可，而不是让类 A 把实现这个功能的细节(所有细分的方法和成员)暴露给 B 。</p>
+<p>其实，这也是面向对象程序设计的最基本思想，是面向对象程序设计语言与面向过程程序设计语言最显著的差异。</p>
+<p>潜台词：不要和陌生人说话，有事去找中介。</p>
+<h3 id="组合复用原则-Composite-Reuse-Principle"><a href="#组合复用原则-Composite-Reuse-Principle" class="headerlink" title="组合复用原则 - Composite Reuse Principle"></a>组合复用原则 - Composite Reuse Principle</h3><p>简称：CRP，也称聚合复用原则 - Aggregate Reuse Principle，简称ARP。或者连起来称：组合/聚合复用原则，简称CARP。</p>
+<p>概念：认为 “如果只是为了达到复用的目的，应尽量使用对象组合与聚合，而不是继承。</p>
+<p>因为继承的耦合性更大，而组合、聚合只是引用类的方法，没有这么维护风险同时也实现了复用的目的。</p>
+<p>潜台词：我只是用了你的方法去实现我要的功能，我们不是同类，没有继承关系。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>至此，我们把面向对象的设计原则讲解完了。你可能会突然发现：哦，原来这么熟悉，原来面向对象的设计原则就在我们身边。是的，其实它就在我们每天的日常编码工作中，只是可能没发现并试图理解它。</p>
+<p>而且设计原则东西就这么点，也很容易学习和掌握。为了帮助读者学习理解并掌握，以及对后面学习设计模式产生帮助，本文花了不少篇幅介绍为什么要学习设计原则，学了有什么好处？真正讲解设计原则方面的知识其实你也发现了，也就那么点。</p>
+<p>OK，最后总结一下本文重点：设计原则和设计模式的概念以及怎么去理解，为什么要学习设计原则，面向对象的设计原则(SOLID),怎么理解多态和继承。</p>
+<p>下篇预告：学习完了设计原则，我们就要来讲解 <strong>设计模式</strong> 了。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你会再想我吗.</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Alan Keene 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Alan Keene 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Alan Keene</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.alankeene.com/2018/0418/principles-of-OOD.html" title="面向对象的设计原则--一文带你理解清楚">https://www.alankeene.com/2018/0418/principles-of-OOD.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OOD/" rel="tag"># OOD</a>
+          
+            <a href="/tags/设计原则/" rel="tag"># 设计原则</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/0417/Android-history.html" rel="next" title="Android 简史">
+                <i class="fa fa-chevron-left"></i> Android 简史
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/0421/Android-Things.html" rel="prev" title="Android Things 官方开发文档(中文版)">
+                Android Things 官方开发文档(中文版) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTQzMS8xMTk2Nw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Alan Keene" />
+            
+              <p class="site-author-name" itemprop="name">Alan Keene</p>
+              <p class="site-description motion-element" itemprop="description">Android Developer.<br>玩 Android, 玩技术~<br>追求通俗易懂的技术描述.<br>喜欢追根溯源，探索技术的深度和原由.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/AlanKeene" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="alankeene0522@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/u/0/110434655952387787979" target="_blank" title="Google+" rel="external nofollow"><i class="fa fa-fw fa-google-plus-square"></i>Google+</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/users/9031185/alan-keene?tab=profile" target="_blank" title="StackOverflow" rel="external nofollow"><i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank" rel="external nofollow">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是设计原则？什么是设计模式"><span class="nav-number">1.</span> <span class="nav-text">什么是设计原则？什么是设计模式?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是设计原则？怎么理解设计原则？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是设计原则？怎么理解设计原则？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是设计模式？怎么理解设计模式？"><span class="nav-number">1.2.</span> <span class="nav-text">什么是设计模式？怎么理解设计模式？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们应该怎样学习和掌握设计原则？"><span class="nav-number">2.</span> <span class="nav-text">我们应该怎样学习和掌握设计原则？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我们为什么还要学习和掌握设计原则呢？"><span class="nav-number">2.1.</span> <span class="nav-text">我们为什么还要学习和掌握设计原则呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SOLID-设计原则"><span class="nav-number">3.</span> <span class="nav-text">SOLID 设计原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#S-Single-reponsibility-principle-单一职责原则"><span class="nav-number">3.1.</span> <span class="nav-text">S (Single reponsibility principle) - 单一职责原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#O-Open-closed-principle-开闭原则"><span class="nav-number">3.2.</span> <span class="nav-text">O (Open/closed principle) - 开闭原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L-Liskov-substitution-principle-里氏替换原则"><span class="nav-number">3.3.</span> <span class="nav-text">L (Liskov substitution principle) - 里氏替换原则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何理解多态和继承？"><span class="nav-number">3.3.1.</span> <span class="nav-text">如何理解多态和继承？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I-Interface-segregation-principle-接口隔离原则"><span class="nav-number">3.4.</span> <span class="nav-text">I(Interface segregation principle) - 接口隔离原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-Dependency-inversion-principle-依赖反转原则"><span class="nav-number">3.5.</span> <span class="nav-text">D(Dependency inversion principle) - 依赖反转原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迪米特原则-Law-of-Demeter"><span class="nav-number">3.6.</span> <span class="nav-text">迪米特原则 - Law of Demeter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合复用原则-Composite-Reuse-Principle"><span class="nav-number">3.7.</span> <span class="nav-text">组合复用原则 - Composite Reuse Principle</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate"> 
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alan Keene</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">18k 字</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读时长">16 分钟</span>
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">Power by <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.1.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+<script>
+  	var _mtac = {};
+  	(function() {
+  		var mta = document.createElement("script");
+  		mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
+  		mta.setAttribute("name", "MTAH5");
+  		mta.setAttribute("sid", "500605447");
+
+  		var s = document.getElementsByTagName("script")[0];
+  		s.parentNode.insertBefore(mta, s);
+  	})();
+</script>
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1273434721&web_id=1273434721" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("eCOI8jl51tovmX1VSWqyAijP-gzGzoHsz", "uYa0tMbwvxmiyU3Kjd6NUxFF");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var newcounter = new Counter();
+              /* Set ACL */
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              newcounter.setACL(acl);
+              /* End Set ACL */
+              newcounter.set("title", title);
+              newcounter.set("url", url);
+              newcounter.set("time", 1);
+              newcounter.save(null, {
+                success: function(newcounter) {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                },
+                error: function(newcounter, error) {
+                  console.log('Failed to create');
+                }
+              });
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Evernote,Linkedin,Twitter,Facebook,GooglePlus,RenRen";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('auto', "#more");
+  
+  </script>
+
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
