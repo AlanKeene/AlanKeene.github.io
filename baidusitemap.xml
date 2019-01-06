@@ -117,26 +117,6 @@
 
     
   <url>
-    <loc>https://www.alankeene.com/2018/0412/next-problems.html</loc>
-    <lastmod>2019-01-02T07:23:26.256Z</lastmod>
-    <data>
-        <display>
-        <title>用 hexo 搭建博客踩过的坑</title>
-        <pubTime>2018-04-12T13:43:47.000Z</pubTime>
-        
-        <tag>踩的NexT坑</tag>
-         
-         
-           
-             
-              <breadCrumb title="那些踩过的坑" url="https://www.alankeene.com/categories/%E9%82%A3%E4%BA%9B%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
     <lastmod>2019-01-02T07:23:26.256Z</lastmod>
     <data>
@@ -150,6 +130,26 @@
            
              
               <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.alankeene.com/2018/0412/next-problems.html</loc>
+    <lastmod>2019-01-02T07:23:26.256Z</lastmod>
+    <data>
+        <display>
+        <title>用 hexo 搭建博客踩过的坑</title>
+        <pubTime>2018-04-12T13:43:47.000Z</pubTime>
+        
+        <tag>踩的NexT坑</tag>
+         
+         
+           
+             
+              <breadCrumb title="那些踩过的坑" url="https://www.alankeene.com/categories/%E9%82%A3%E4%BA%9B%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/"/>
           
         </display>
     </data>
