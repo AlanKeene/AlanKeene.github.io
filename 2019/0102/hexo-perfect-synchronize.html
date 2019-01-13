@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="Alan&#39;s Blog - Android">
 <meta property="og:description" content="目前网上大部分 hexo 多电脑同步博客方案都是新建一个开源分支去存放博客源文件，但是你会发现，这样做的话很多第三插件配置的appid、app_key等密钥信息也暴露在了公开的仓库里，存在一定的数据安全隐患。本文将介绍一种新建私有仓库来管理博客源文件的方案来解决上述问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-04T15:51:32.139Z">
+<meta property="og:updated_time" content="2019-01-13T14:02:00.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最安全的 hexo 多电脑同步博客解决方案--非新建分支">
 <meta name="twitter:description" content="目前网上大部分 hexo 多电脑同步博客方案都是新建一个开源分支去存放博客源文件，但是你会发现，这样做的话很多第三插件配置的appid、app_key等密钥信息也暴露在了公开的仓库里，存在一定的数据安全隐患。本文将介绍一种新建私有仓库来管理博客源文件的方案来解决上述问题。">
@@ -512,7 +512,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">2.5k 字</span>
+                <span title="字数统计">2.6k 字</span>
               
 
               
@@ -568,11 +568,11 @@
 </li>
 <li><p>当你在新电脑用 <code>npm install</code> 下载依赖的第三插件时，由于 node 的版本、众多第三方插件、跨平台等原因，可能有的插件会存在兼容性问题，导致下载不下来，笔者想迁移到 Mac 上就遇到兼容性问题了，<code>fsevent</code> 插件目前不支持 node v11+ 版本，而刚配置新电脑的 node 环境时，默认安装的是最新版的 node，需要降低 node 的版本才能下载成功。 </p>
 <ul>
-<li><p><a href="https://www.alankeene.com/2019/0102/fsevents-didnot-soppurt-node11.html">node 11 无法安装 fsevents 插件的解决方案</a></p>
+<li><a href="https://www.alankeene.com/2019/0102/fsevents-didnot-soppurt-node11.html">node 11 无法安装 fsevents 插件的解决方案</a></li>
+</ul>
 <p>至于如何降低 node 的版本，其实你不用删除，有一个叫 <code>nvm</code> （Node Version Manager）的工具，专门用来管理多个版本的 node 环境的，你可以下载多个版本的 node 存在你的机器中，用 <code>nvm</code> 的命令行就可以实现不同版本 node 环境的随意切换，非常方便。</p>
-</li>
-<li><p><a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">这是 nvm 的 github 地址</a></p>
-</li>
+<ul>
+<li><a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">这是 nvm 的 github 地址</a></li>
 </ul>
 </li>
 <li><p>好，当你在新的电脑上写完博客，本地预览也没问题，准备用 <code>hexo d</code> 部署到 Github 和 Coding 上前，别忘了把新电脑的 SSH 公钥配置到 Github 和 Coding 上。</p>
@@ -581,7 +581,7 @@
 <p>更新完博客后，记得    用 <code>git push</code> 将新电脑上改动的博客源文件也 push 到私有仓库中，实现博客源文件的同步更新。</p>
 </li>
 <li><p>当你在另一台电脑上准备开始写博客前，记得把远程私有仓库的最新博客源文件拉到本地，<strong>但记得不要用 <code>git pull</code> 的方式</strong>，用如下两条命令：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all    <span class="comment">#将远程git仓库上最新的内容拉取到本地,将本地库所关联的远程库更新至最新</span></span><br><span class="line">git reset --hard origin/<span class="keyword">master</span>   <span class="title">#强制将本地库的内容指向最新远程仓库的master</span>分支</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all    <span class="comment">#将远程git仓库上最新的内容拉取到本地,将本地库所关联的远程库更新至最新</span></span><br><span class="line">git reset --hard origin/<span class="keyword">master</span>   <span class="title">#强制将本地库的内容指向最新远程仓库的master</span>分支</span><br><span class="line">     </span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>最后附上该篇博客的地址：</p>
@@ -590,6 +590,8 @@
 </ul>
 <p>从此，你就可以在多台电脑间愉快地写博客啦～</p>
 <p>本迁移解决方案博主亲测有效，请放心迁移，迁移过程中如果还遇到什么问题欢迎和我交流。</p>
+<hr>
+<p><code>2019.1.8 最新更新：</code> <strong>好消息</strong>是：Github 从 2019.1.8 日起可以免费使用私有仓库了，那大家也可以选择把博客源文件传到 Github 私有仓库上，维护起来更加方便了。</p>
 
       
     </div>
