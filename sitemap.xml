@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.alankeene.com/about/index.html</loc>
+    
+    <lastmod>2019-01-26T13:07:27.143Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.alankeene.com/2019/0102/hexo-perfect-synchronize.html</loc>
     
     <lastmod>2019-01-13T14:02:00.209Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://www.alankeene.com/2019/0106/AndroidStudio-mac-shortcuts.html</loc>
     
     <lastmod>2019-01-07T05:45:48.522Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.alankeene.com/about/index.html</loc>
-    
-    <lastmod>2019-01-04T11:55:33.120Z</lastmod>
     
   </url>
   
