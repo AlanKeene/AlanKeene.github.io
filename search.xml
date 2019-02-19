@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[你有没有想过为什么Java中String通过new的方式实例之后就不能改变它的内容了？]]></title>
+    <url>%2F2019%2F0219%2Fwhy-string-imutable.html</url>
+    <content type="text"><![CDATA[解答：因为在 String 通过 new 的构造方式初始化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。 12345678910111213141516171819public final class String implements Serializable, Comparable&lt;String&gt;, CharSequence &#123; private final char[] value; // 用 final 修饰的字符数组存储字符串 private int hash; private static final long serialVersionUID = -6849794470754667710L; public String() &#123; this.value = "".value; &#125; public String(String var1) &#123; this.value = var1.value; this.hash = var1.hash; &#125; public String(char[] var1) &#123; this.value = Arrays.copyOf(var1, var1.length); &#125; ......&#125; 面试问题：String 类是用什么数据结构来存储字符串的？由上面 String 的源码可见，String 类是用数组的数据结构来存储字符串的。]]></content>
+      <categories>
+        <category>Java 内功强化系列</category>
+      </categories>
+      <tags>
+        <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Android Studio mac 快捷键]]></title>
     <url>%2F2019%2F0106%2FAndroidStudio-mac-shortcuts.html</url>
     <content type="text"><![CDATA[Android Studio 常用 mac 快捷键 快捷键 用法 ⌃+⇧+Space 初始化对象时，输入 new 后，按此快捷键快速输入类名 ⌥⌘B 快速导航到抽象方法的实现类 ⌥⌘V mEditorPane.setBorder(BorderFatory.createEmptyBorder(5,5,5,5));选中BorderFatory.createEmptyBorder(5,5,5,5), 然后按此快捷键，自动提取出如下代码：Border emptyBorder = BorderFactory.createEmptyBorder(5,5,5,5);myEditorPane.setBorder(emptyBorder); ⌃Space 新建一个变量时，按此快捷键，编辑器会推荐一个变量名 ⌘P 如果光标位于方法调用的括号之间，则按⌘P将显示有效参数列表。]]></content>
