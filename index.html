@@ -512,7 +512,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">2.4k 字</span>
+                <span title="字数统计">2.5k 字</span>
               
 
               
@@ -559,7 +559,7 @@
 <p>我们再反证一下，把 equals 方法改为返回 false，模拟两个hashCode相同，但是是两个不同的对象的情景。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"判断 hashCode"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// 返回1，说明所有新建的对象的哈希值都为1，也就是相同</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"判断 equals"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">// 返回false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>打印结果会如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">判断 hashCode </span><br><span class="line">判断 hashCode</span><br><span class="line">判断 equals</span><br><span class="line">----hs添加完毕</span><br><span class="line">判断 hashCode <span class="comment">// 此处的判断是打印输出语句执行时调用的，与分析本问题无关</span></span><br><span class="line">判断 hashCode <span class="comment">// 此处的判断是打印输出语句执行时调用的，与分析本问题无关</span></span><br><span class="line">hs:[com.alankeene.javalib.collections.CustomClass@<span class="number">1</span>, com.alankeene.javalib.collections.CustomClass@<span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
 <p>会发现，HashSet集合中存放了两个元素了，说明虽然 cs1 和 cs2 的哈希值相同，但是虚拟机判断为不同的元素并存入集合中了。</p>
-<p>由此，验证了我们的猜想。</p>
+<p>由此，验证了我们的猜想。Java 虚拟机是先判断 hashCode，如果 hashCode 相同再通过 equals 去判断两个对象是否相同的。</p>
 
           
         
