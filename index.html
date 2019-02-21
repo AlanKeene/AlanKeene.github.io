@@ -262,7 +262,7 @@
           
   <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">14</span>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">15</span>
       </a>
 </li>
 
@@ -272,7 +272,7 @@
           
   <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">9</span>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">10</span>
       </a>
 </li>
 
@@ -421,6 +421,198 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.alankeene.com/2019/0222/how-jvm-distinguish-object.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alan Keene">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alan's Blog - Android">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/0222/how-jvm-distinguish-object.html" itemprop="url">你有没有想过，Java虚拟机是如何判断两个对象是否相同的？判断的流程是什么？</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-22T00:17:40+08:00">2019-02-22</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java-内功强化系列/" itemprop="url" rel="index"><span itemprop="name">Java 内功强化系列</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/0222/how-jvm-distinguish-object.html" class="leancloud_visitors" data-flag-title="你有没有想过，Java虚拟机是如何判断两个对象是否相同的？判断的流程是什么？">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">2.4k 字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">2 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在Java程序运行时，会产生那么多的对象，那 Java 虚拟机是如何判断两个对象是否相同的呢？判断的流程是什么？</p>
+<p><strong>参考解答：</strong><br>Java 虚拟机会先判断两个对象的hashCode是否相同，如果hashCode不同，则说明肯定是两个不同的对象了；如果hashCode相同再通过equals()方法进行进一步比较，如果equals方法返回true，则说明两个对象是相同的，如果equals方法返回false说明两个对象不同。</p>
+<h4 id="如何验证"><a href="#如何验证" class="headerlink" title="如何验证"></a>如何验证</h4><p>怎么来验证这个问题呢？我们知道HashSet是不允许存储相同的键值的。所以我们可以用HashSet存储两个相同的键值来模拟，看Java虚拟机是如何做判断和识别的，从而验证我们的猜想。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先自定义一个类并复写 hashCode 和 equals 方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"判断 hashCode"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// 返回1，说明所有新建的对象的哈希值都为1，也就是相同</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"判断 equals"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">// 返回true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来我们用HashSet来存储两个自定义的CustomClass的对象，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashSetTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      </span><br><span class="line">        HashSet&lt;CustomClass&gt; hs = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        CustomClass cs1 = <span class="keyword">new</span> CustomClass();</span><br><span class="line">        CustomClass cs2 = <span class="keyword">new</span> CustomClass();</span><br><span class="line">        hs.add(cs1);</span><br><span class="line">        hs.add(cs2);</span><br><span class="line">        System.out.println(<span class="string">"----hs添加完毕"</span>);</span><br><span class="line">        System.out.println(<span class="string">"hs:"</span>+hs); <span class="comment">// 打印一下hashSet集合看里面存放了什么</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印结果如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">判断 hashCode </span><br><span class="line">判断 hashCode</span><br><span class="line">判断 equals</span><br><span class="line">----hs添加完毕</span><br><span class="line">判断 hashCode <span class="comment">// 此处的判断是打印输出语句执行时调用的，与分析本问题无关</span></span><br><span class="line">hs:[com.alankeene.javalib.collections.CustomClass@<span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
+<p>结果分析：<br>执行 <code>hs.add(cs1)</code> 语句的时候，Java 虚拟机会先判断 cs1 所指向对象的hashCode，因为是第一次往HashSet集合里面存放元素，该元素 hashCode 在集合中肯定是还没存在的，这是个新的元素，所以直接存放进集合中，不用调用 cs1 所指向对象的 equals 方法。<br>当执行 <code>hs.add(cs2)</code> 语句时，这是第二次往集合里存放元素，有新的元素 cs2 要添加进来，那先要调用 cs2 所指向对象的 hashCode 方法看看它的哈希值是不是与集合中已有元素的哈希值重复了，发现重复了，哈希值都是1，那有可能是同一个对象，那就要调用 cs2 所指向对象的 equals 方法做进一步判断，发现 equals 方法返回 true，则判断为是重复的元素，就不往集合里添加了。</p>
+<p>所以最终打印 HashSet 集合的时候可以看到，集合中只存放了一个元素。</p>
+<p>我们再反证一下，把 equals 方法改为返回 false，模拟两个hashCode相同，但是是两个不同的对象的情景。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"判断 hashCode"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// 返回1，说明所有新建的对象的哈希值都为1，也就是相同</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"判断 equals"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">// 返回false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印结果会如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">判断 hashCode </span><br><span class="line">判断 hashCode</span><br><span class="line">判断 equals</span><br><span class="line">----hs添加完毕</span><br><span class="line">判断 hashCode <span class="comment">// 此处的判断是打印输出语句执行时调用的，与分析本问题无关</span></span><br><span class="line">判断 hashCode <span class="comment">// 此处的判断是打印输出语句执行时调用的，与分析本问题无关</span></span><br><span class="line">hs:[com.alankeene.javalib.collections.CustomClass@<span class="number">1</span>, com.alankeene.javalib.collections.CustomClass@<span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
+<p>会发现，HashSet集合中存放了两个元素了，说明虽然 cs1 和 cs2 的哈希值相同，但是虚拟机判断为不同的元素并存入集合中了。</p>
+<p>由此，验证了我们的猜想。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.alankeene.com/2019/0219/why-string-imutable.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -440,7 +632,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/0219/why-string-imutable.html" itemprop="url">你有没有想过为什么Java中String通过new的方式实例之后就不能改变它的内容了？</a></h2>
+                <a class="post-title-link" href="/2019/0219/why-string-imutable.html" itemprop="url">你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？</a></h2>
         
 
         <div class="post-meta">
@@ -487,7 +679,7 @@
 
           
           
-             <span id="/2019/0219/why-string-imutable.html" class="leancloud_visitors" data-flag-title="你有没有想过为什么Java中String通过new的方式实例之后就不能改变它的内容了？">
+             <span id="/2019/0219/why-string-imutable.html" class="leancloud_visitors" data-flag-title="你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -548,7 +740,7 @@
       
         
           
-            <p><strong>解答</strong>：<br>因为在 String 通过 new 的构造方式初始化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。</p>
+            <p><strong>解答</strong>：<br>因为 String 在通过 new 的构造方式实例化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span>[] value; <span class="comment">// 用 final 修饰的字符数组存储字符串</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> hash;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">6849794470754667710L</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = <span class="string">""</span>.value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(String var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = var1.value;</span><br><span class="line">        <span class="keyword">this</span>.hash = var1.hash;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(<span class="keyword">char</span>[] var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = Arrays.copyOf(var1, var1.length);</span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>面试问题</strong>：String 类是用什么数据结构来存储字符串的？<br>由上面 String 的源码可见，<strong>String 类是用数组的数据结构来存储字符串的</strong>。</p>
 
@@ -995,7 +1187,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/0102/hexo-perfect-synchronize.html" itemprop="url">最安全的 hexo 多电脑同步博客解决方案--非新建分支</a></h2>
+                <a class="post-title-link" href="/2019/0102/hexo-perfect-synchronize.html" itemprop="url">最安全的hexo多台电脑同步博客解决方案--非新建分支</a></h2>
         
 
         <div class="post-meta">
@@ -1042,7 +1234,7 @@
 
           
           
-             <span id="/2019/0102/hexo-perfect-synchronize.html" class="leancloud_visitors" data-flag-title="最安全的 hexo 多电脑同步博客解决方案--非新建分支">
+             <span id="/2019/0102/hexo-perfect-synchronize.html" class="leancloud_visitors" data-flag-title="最安全的hexo多台电脑同步博客解决方案--非新建分支">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2136,7 +2328,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2208,7 +2400,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2297,7 +2491,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">19k 字</span>
+    <span title="站点总字数">22k 字</span>
   
 
   
@@ -2306,7 +2500,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点总阅读时长">17 分钟</span>
+    <span title="站点总阅读时长">20 分钟</span>
   
 </div>
 

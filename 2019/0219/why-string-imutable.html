@@ -105,18 +105,18 @@
 
 
 
-  <meta name="description" content="解答：因为在 String 通过 new 的构造方式初始化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。 12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;,">
+  <meta name="description" content="解答：因为 String 在通过 new 的构造方式实例化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。 12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;,">
 <meta name="keywords" content="String为什么不可变">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你有没有想过为什么Java中String通过new的方式实例之后就不能改变它的内容了？">
+<meta property="og:title" content="你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？">
 <meta property="og:url" content="https://www.alankeene.com/2019/0219/why-string-imutable.html">
 <meta property="og:site_name" content="Alan&#39;s Blog - Android">
-<meta property="og:description" content="解答：因为在 String 通过 new 的构造方式初始化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。 12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;,">
+<meta property="og:description" content="解答：因为 String 在通过 new 的构造方式实例化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。 12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;,">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-19T09:03:01.002Z">
+<meta property="og:updated_time" content="2019-02-21T16:32:06.782Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你有没有想过为什么Java中String通过new的方式实例之后就不能改变它的内容了？">
-<meta name="twitter:description" content="解答：因为在 String 通过 new 的构造方式初始化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。 12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;,">
+<meta name="twitter:title" content="你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？">
+<meta name="twitter:description" content="解答：因为 String 在通过 new 的构造方式实例化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。 12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;,">
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>你有没有想过为什么Java中String通过new的方式实例之后就不能改变它的内容了？ | Alan's Blog - Android</title>
+  <title>你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？ | Alan's Blog - Android</title>
   
 
 
@@ -262,7 +262,7 @@
           
   <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">14</span>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">15</span>
       </a>
 </li>
 
@@ -272,7 +272,7 @@
           
   <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">9</span>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">10</span>
       </a>
 </li>
 
@@ -440,7 +440,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">你有没有想过为什么Java中String通过new的方式实例之后就不能改变它的内容了？</h2>
+          <h2 class="post-title" itemprop="name headline">你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？</h2>
         
 
         <div class="post-meta">
@@ -487,7 +487,7 @@
 
           
           
-             <span id="/2019/0219/why-string-imutable.html" class="leancloud_visitors" data-flag-title="你有没有想过为什么Java中String通过new的方式实例之后就不能改变它的内容了？">
+             <span id="/2019/0219/why-string-imutable.html" class="leancloud_visitors" data-flag-title="你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -546,7 +546,7 @@
       
 
       
-        <p><strong>解答</strong>：<br>因为在 String 通过 new 的构造方式初始化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。</p>
+        <p><strong>解答</strong>：<br>因为 String 在通过 new 的构造方式实例化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span>[] value; <span class="comment">// 用 final 修饰的字符数组存储字符串</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> hash;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">6849794470754667710L</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = <span class="string">""</span>.value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(String var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = var1.value;</span><br><span class="line">        <span class="keyword">this</span>.hash = var1.hash;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(<span class="keyword">char</span>[] var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = Arrays.copyOf(var1, var1.length);</span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>面试问题</strong>：String 类是用什么数据结构来存储字符串的？<br>由上面 String 的源码可见，<strong>String 类是用数组的数据结构来存储字符串的</strong>。</p>
 
@@ -599,7 +599,7 @@
     <strong>本文作者： </strong>Alan Keene</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.alankeene.com/2019/0219/why-string-imutable.html" title="你有没有想过为什么Java中String通过new的方式实例之后就不能改变它的内容了？">https://www.alankeene.com/2019/0219/why-string-imutable.html</a>
+    <a href="https://www.alankeene.com/2019/0219/why-string-imutable.html" title="你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？">https://www.alankeene.com/2019/0219/why-string-imutable.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</li>
@@ -649,6 +649,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/0222/how-jvm-distinguish-object.html" rel="prev" title="你有没有想过，Java虚拟机是如何判断两个对象是否相同的？判断的流程是什么？">
+                你有没有想过，Java虚拟机是如何判断两个对象是否相同的？判断的流程是什么？ <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -722,7 +726,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -794,7 +798,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -883,7 +889,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">19k 字</span>
+    <span title="站点总字数">22k 字</span>
   
 
   
@@ -892,7 +898,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点总阅读时长">17 分钟</span>
+    <span title="站点总阅读时长">20 分钟</span>
   
 </div>
 
