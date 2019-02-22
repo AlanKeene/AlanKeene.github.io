@@ -105,18 +105,18 @@
 
 
 
-  <meta name="description" content="解答：因为 String 在通过 new 的构造方式实例化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。 12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;,">
+  <meta name="description" content="12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence &amp;#123;    private final char[] value; // 用 private final 修饰的字符数组存储字符串    private">
 <meta name="keywords" content="String为什么不可变">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？">
+<meta property="og:title" content="你有没有想过，为什么Java中String是不可变的？">
 <meta property="og:url" content="https://www.alankeene.com/2019/0219/why-string-imutable.html">
 <meta property="og:site_name" content="Alan&#39;s Blog - Android">
-<meta property="og:description" content="解答：因为 String 在通过 new 的构造方式实例化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。 12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;,">
+<meta property="og:description" content="12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence &amp;#123;    private final char[] value; // 用 private final 修饰的字符数组存储字符串    private">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-21T16:36:41.906Z">
+<meta property="og:updated_time" content="2019-02-22T16:37:10.781Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？">
-<meta name="twitter:description" content="解答：因为 String 在通过 new 的构造方式实例化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。 12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;,">
+<meta name="twitter:title" content="你有没有想过，为什么Java中String是不可变的？">
+<meta name="twitter:description" content="12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence &amp;#123;    private final char[] value; // 用 private final 修饰的字符数组存储字符串    private">
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？ | Alan's Blog - Android</title>
+  <title>你有没有想过，为什么Java中String是不可变的？ | Alan's Blog - Android</title>
   
 
 
@@ -440,7 +440,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？</h2>
+          <h2 class="post-title" itemprop="name headline">你有没有想过，为什么Java中String是不可变的？</h2>
         
 
         <div class="post-meta">
@@ -487,7 +487,7 @@
 
           
           
-             <span id="/2019/0219/why-string-imutable.html" class="leancloud_visitors" data-flag-title="你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？">
+             <span id="/2019/0219/why-string-imutable.html" class="leancloud_visitors" data-flag-title="你有没有想过，为什么Java中String是不可变的？">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -512,7 +512,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">736 字</span>
+                <span title="字数统计">5.4k 字</span>
               
 
               
@@ -526,7 +526,7 @@
                 
                   <span class="post-meta-item-text">阅读时长&asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -546,9 +546,38 @@
       
 
       
-        <p><strong>解答</strong>：<br>因为 String 在通过 new 的构造方式实例化的时候，在底层会用一个 private final 修饰的字符数组来存储字符串，该字符数组用了 final 来修饰所以是不可变的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span>[] value; <span class="comment">// 用 final 修饰的字符数组存储字符串</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> hash;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">6849794470754667710L</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = <span class="string">""</span>.value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(String var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = var1.value;</span><br><span class="line">        <span class="keyword">this</span>.hash = var1.hash;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(<span class="keyword">char</span>[] var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = Arrays.copyOf(var1, var1.length);</span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span>[] value; <span class="comment">// 用 private final 修饰的字符数组存储字符串</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> hash;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">6849794470754667710L</span>;</span><br><span class="line">4</span><br><span class="line">4<span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = <span class="string">""</span>.value; </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(String var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = var1.value;</span><br><span class="line">        <span class="keyword">this</span>.hash = var1.hash;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(<span class="keyword">char</span>[] var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = Arrays.copyOf(var1, var1.length);</span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="解答："><a href="#解答：" class="headerlink" title="解答："></a><strong>解答</strong>：</h4><p>有三点：<br>1）String 在底层是用一个 private final 修饰的字符数组 value 来存储字符串的。final 修饰符保证了 value 这个引用变量是不可变的，private 修饰符则保证了 value 是类私有的，不能通过对象实例去访问和更改 value 数组里存放的字符。</p>
+<blockquote>
+<p>注：有很多地方说 String 不可变是 final 起的作用，其实不严谨。因为即使我不用 final 修改 value ，但初始化完成后我能保证以后都不更改 value 这个引用变量和 value[] 数组里存放的值，它也是从没变化过的。final 只是保证了 value 这个引用变量是不能更改的，但不能保证 value[] 数组里存放的字符是不能更改的。如果把 private 改为 public 修饰，String类的对象是可以通过访问 value 去更改 value[] 数组里存放的字符的，这时 String 就不再是不可变的了。所以不如说 private 起的作用更大一些。后面我们会通过 <code>代码1处</code> 去验证。 </p>
+</blockquote>
+<p>2）String 类并没有对外暴露可以修改 value[] 数组内容的方法，并且 String 类内部对字符串的操作和改变都是通过新建一个 String 对象去完成的，操作完返回的是新的 String 对象，并没有改变原来对象的 value[] 数组。</p>
+<blockquote>
+<p>注：String 类如果对外暴露可以更改 value[] 数组的方法，如 setter 方法，也是不能保证 String 是不可变的。后面我们会通过 <code>代码2处</code> 去验证。</p>
+</blockquote>
+<p>3）String 类是用 final 修饰的，保证了 String 类是不能通过子类继承去破坏或更改它的不可变性的。</p>
+<blockquote>
+<p>注：如果 String 类不是用 final 修饰的，也就是 String 类是可以被子类继承的，那子类就可以改变父类原有的方法或属性。后面我们会通过 <code>代码3处</code> 去验证。 </p>
+</blockquote>
+<p>以上三个条件同时满足，才让 String 类成了不可变类，才让 String 类具有了一旦实例化就不能改变它的内容的属性。</p>
 <p><strong>面试问题</strong>：String 类是用什么数据结构来存储字符串的？<br>由上面 String 的源码可见，<strong>String 类是用数组的数据结构来存储字符串的</strong>。</p>
+<h4 id="代码1处："><a href="#代码1处：" class="headerlink" title="代码1处："></a>代码1处：</h4><p>我们来看看如果把 private 修饰符换成 public，看看会发生什么？<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 先来模拟一个String类，初始化的时候将 String 转成 value 数组存储</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">WhyStringImutable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">char</span>[] value;  <span class="comment">// 修饰符改成了 public </span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WhyStringImutable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = <span class="string">""</span>.toCharArray();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WhyStringImutable</span><span class="params">(String str)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = str.toCharArray(); <span class="comment">// 初始化时转为字符数组</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">char</span>[] getValue()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WhyStringImutableTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        WhyStringImutable str = <span class="keyword">new</span> WhyStringImutable(<span class="string">"abcd"</span>);</span><br><span class="line">        System.out.println(<span class="string">"原str中value数组的内容为："</span>);</span><br><span class="line">        System.out.println(str.getValue()); <span class="comment">// 打印str对象中存放的字符数组</span></span><br><span class="line">        System.out.println(<span class="string">"----------"</span>);</span><br><span class="line">        str.value[<span class="number">1</span>] = <span class="string">'e'</span>; <span class="comment">// 通过对象实例访问value数组并修改其内容</span></span><br><span class="line">        System.out.println(<span class="string">"修改后str中value数组的内容为："</span>);</span><br><span class="line">        System.out.println(str.getValue()); <span class="comment">// 打印str对象中存放的字符数组</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">原str中value数组的内容为：</span><br><span class="line">abcd</span><br><span class="line">----------</span><br><span class="line">修改后str中value数组的内容为：</span><br><span class="line">aecd</span><br></pre></td></tr></table></figure></p>
+<p>由此可见，private 修改为 public 后，String 是可以通过对象实例访问并修改所保存的value 数组的，并不能保证 String 的不可变性。</p>
+<h4 id="代码2处："><a href="#代码2处：" class="headerlink" title="代码2处："></a>代码2处：</h4><p>我们如果对外暴露可以更改 value[] 数组的方法，如 setter 方法，看看又会发生什么？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">WhyStringImutable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span>[] value;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WhyStringImutable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = <span class="string">""</span>.toCharArray();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WhyStringImutable</span><span class="params">(String str)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = str.toCharArray();</span><br><span class="line">    &#125;</span><br><span class="line">4</span><br><span class="line">4<span class="comment">// 对外暴露可以修改 value 数组的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">char</span> ch)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value[i] = ch;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">char</span>[] getValue()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WhyStringImutableTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        WhyStringImutable str = <span class="keyword">new</span> WhyStringImutable(<span class="string">"abcd"</span>);</span><br><span class="line">        System.out.println(<span class="string">"原str中value数组的内容为："</span>);</span><br><span class="line">        System.out.println(str.getValue()); <span class="comment">// 打印str对象中存放的字符数组</span></span><br><span class="line">        System.out.println(<span class="string">"----------"</span>);</span><br><span class="line">        str.setValue(<span class="number">1</span>,<span class="string">'e'</span>); <span class="comment">// 通过set方法改变指定位置的value数组元素</span></span><br><span class="line">        System.out.println(<span class="string">"修改后str中value数组的内容为："</span>);</span><br><span class="line">        System.out.println(str.getValue()); <span class="comment">// 打印str对象中存放的字符数组</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">原str中value数组的内容为：</span><br><span class="line">abcd</span><br><span class="line">----------</span><br><span class="line">修改后str中value数组的内容为：</span><br><span class="line">aecd</span><br></pre></td></tr></table></figure></p>
+<p>由此可见，如果对外暴露了可以更改 value[] 数组内容的方法，也是不能保证 String 的不可变性的。</p>
+<h4 id="代码3处："><a href="#代码3处：" class="headerlink" title="代码3处："></a>代码3处：</h4><p>如果 WhyStringImutable 类去掉 final 修饰，其他的保持不变，又会怎样呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WhyStringImutable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span>[] value;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WhyStringImutable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = <span class="string">""</span>.toCharArray();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WhyStringImutable</span><span class="params">(String str)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = str.toCharArray(); <span class="comment">// 初始化时转为字符数组</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">char</span>[] getValue()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p> 写一个子类继承自WhyStringImutable 并修改原来父类的属性，实现子类自己的逻辑：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WhyStringImutableChild</span> <span class="keyword">extends</span> <span class="title">WhyStringImutable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">char</span>[] value; <span class="comment">// 修改字符数组为 public 修饰，不要 final </span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WhyStringImutableChild</span><span class="params">(String str)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = str.toCharArray();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WhyStringImutableChild</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value = <span class="string">""</span>.toCharArray();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">char</span>[] getValue() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WhyStringImutableTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        WhyStringImutableChild str = <span class="keyword">new</span> WhyStringImutableChild(<span class="string">"abcd"</span>);</span><br><span class="line">        System.out.println(<span class="string">"原str中value数组的内容为："</span>);</span><br><span class="line">        System.out.println(str.getValue());</span><br><span class="line">        System.out.println(<span class="string">"----------"</span>);</span><br><span class="line">        str.value[<span class="number">1</span>] = <span class="string">'s'</span>;</span><br><span class="line">        System.out.println(<span class="string">"修改后str中value数组的内容为："</span>);</span><br><span class="line">        System.out.println(str.getValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">原str中value数组的内容为：</span><br><span class="line">abcd</span><br><span class="line">----------</span><br><span class="line">修改后str中value数组的内容为：</span><br><span class="line">ascd</span><br></pre></td></tr></table></figure></p>
+<p>由此可见，如果 String 类不是用 final 修饰的，是可以通过子类继承来修改它原来的属性的，所以也是不能保证它的不可变性的。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>综上所分析，String 不可变的原因是 JDK 设计者巧妙的设计了如上三点，保证了String 类是个不可变类，让 String 具有了不可变的属性。考验的是工程师构造数据类型，封装数据的功力，而不是简单的用 final 来修饰，背后的设计思想值得我们理解和学习。</p>
+<blockquote>
+<p>由体验入，顺瓜摸藤，追根溯源，为我所用。</p>
+</blockquote>
 
       
     </div>
@@ -599,7 +628,7 @@
     <strong>本文作者： </strong>Alan Keene</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.alankeene.com/2019/0219/why-string-imutable.html" title="你有没有想过，为什么Java中String实例化之后就不能改变它的内容了？">https://www.alankeene.com/2019/0219/why-string-imutable.html</a>
+    <a href="https://www.alankeene.com/2019/0219/why-string-imutable.html" title="你有没有想过，为什么Java中String是不可变的？">https://www.alankeene.com/2019/0219/why-string-imutable.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</li>
@@ -706,8 +735,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -864,6 +902,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#解答："><span class="nav-number">1.</span> <span class="nav-text">解答：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码1处："><span class="nav-number">2.</span> <span class="nav-text">代码1处：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码2处："><span class="nav-number">3.</span> <span class="nav-text">代码2处：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码3处："><span class="nav-number">4.</span> <span class="nav-text">代码3处：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -889,7 +943,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">22k 字</span>
+    <span title="站点总字数">26k 字</span>
   
 
   
@@ -898,7 +952,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点总阅读时长">20 分钟</span>
+    <span title="站点总阅读时长">24 分钟</span>
   
 </div>
 

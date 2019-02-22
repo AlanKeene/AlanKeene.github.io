@@ -9,8 +9,8 @@ Share about Android and Technology.
 注：原 Github 地址将停止维护.
 
 # 博客精选原创文章
-- [Java虚拟机是如何判断两个对象是否相同的？](https://www.alankeene.com/2019/0222/how-jvm-distinguish-object.html)
-- [为什么Java中String实例化之后就不能改变它的内容了？](https://www.alankeene.com/2019/0219/why-string-imutable.html)
+- [Java 虚拟机是如何判断两个对象是否相同的？](https://www.alankeene.com/2019/0222/how-jvm-distinguish-object.html)
+- [为什么 Java 中 String 是不可变的？](https://www.alankeene.com/2019/0219/why-string-imutable.html)
 - [最安全的 hexo 多电脑同步博客解决方案--非新建分支](https://www.alankeene.com/2019/0102/hexo-perfect-synchronize.html)
 - [dryrun 在 windows 上的使用教程](https://www.alankeene.com/2018/0618/use-dryrun-in-windows.html)
 - [Android Things 官方开发文档(中文版)](https://www.alankeene.com/2018/0421/Android-Things.html)
