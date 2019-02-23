@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.alankeene.com/2019/0223/how-to-store-same-string-in-hashset.html</loc>
+    
+    <lastmod>2019-02-23T13:59:20.027Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.alankeene.com/2019/0219/why-string-imutable.html</loc>
     
     <lastmod>2019-02-23T12:51:43.747Z</lastmod>
@@ -72,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://www.alankeene.com/2018/0421/Android-Things.html</loc>
+    <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
     
     <lastmod>2019-01-02T07:23:26.256Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
+    <loc>https://www.alankeene.com/2018/0421/Android-Things.html</loc>
     
     <lastmod>2019-01-02T07:23:26.256Z</lastmod>
     

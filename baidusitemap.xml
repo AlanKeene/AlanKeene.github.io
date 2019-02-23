@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>https://www.alankeene.com/2019/0223/how-to-store-same-string-in-hashset.html</loc>
+    <lastmod>2019-02-23T13:59:20.027Z</lastmod>
+    <data>
+        <display>
+        <title>一个有趣的问题，如何用HashSet来存储重复的字符串？</title>
+        <pubTime>2019-02-23T13:46:05.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>String</tag>
+         
+        <tag>HashSet</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java 内功强化系列" url="https://www.alankeene.com/categories/Java-%E5%86%85%E5%8A%9F%E5%BC%BA%E5%8C%96%E7%B3%BB%E5%88%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://www.alankeene.com/2019/0219/why-string-imutable.html</loc>
     <lastmod>2019-02-23T12:51:43.747Z</lastmod>
     <data>
@@ -155,6 +179,26 @@
     
     
   <url>
+    <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
+    <lastmod>2019-01-02T07:23:26.256Z</lastmod>
+    <data>
+        <display>
+        <title>Android 简史</title>
+        <pubTime>2018-04-17T05:36:17.000Z</pubTime>
+        
+        <tag>Android简史</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://www.alankeene.com/2018/0421/Android-Things.html</loc>
     <lastmod>2019-01-02T07:23:26.256Z</lastmod>
     <data>
@@ -170,26 +214,6 @@
            
              
               <breadCrumb title="Android Things" url="https://www.alankeene.com/categories/Android-Things/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
-    <lastmod>2019-01-02T07:23:26.256Z</lastmod>
-    <data>
-        <display>
-        <title>Android 简史</title>
-        <pubTime>2018-04-17T05:36:17.000Z</pubTime>
-        
-        <tag>Android简史</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
           
         </display>
     </data>
