@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="Alan&#39;s Blog - Android">
 <meta property="og:description" content="12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence &amp;#123;    private final char[] value; // 用 private final 修饰的字符数组存储字符串    private">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-22T16:37:10.781Z">
+<meta property="og:updated_time" content="2019-02-23T12:51:43.747Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你有没有想过，为什么Java中String是不可变的？">
 <meta name="twitter:description" content="12345678910111213141516171819public final class String implements Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence &amp;#123;    private final char[] value; // 用 private final 修饰的字符数组存储字符串    private">
@@ -512,7 +512,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">5.4k 字</span>
+                <span title="字数统计">7.5k 字</span>
               
 
               
@@ -526,7 +526,7 @@
                 
                   <span class="post-meta-item-text">阅读时长&asymp;</span>
                 
-                <span title="阅读时长">5 分钟</span>
+                <span title="阅读时长">7 分钟</span>
               
             </div>
           
@@ -575,6 +575,13 @@
 <p>运行结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">原str中value数组的内容为：</span><br><span class="line">abcd</span><br><span class="line">----------</span><br><span class="line">修改后str中value数组的内容为：</span><br><span class="line">ascd</span><br></pre></td></tr></table></figure></p>
 <p>由此可见，如果 String 类不是用 final 修饰的，是可以通过子类继承来修改它原来的属性的，所以也是不能保证它的不可变性的。</p>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>综上所分析，String 不可变的原因是 JDK 设计者巧妙的设计了如上三点，保证了String 类是个不可变类，让 String 具有了不可变的属性。考验的是工程师构造数据类型，封装数据的功力，而不是简单的用 final 来修饰，背后的设计思想值得我们理解和学习。</p>
+<h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><p>从上面的分析，我们知道，String 确实是个不可变的类，但我们就真的没办法改变 String 对象的值了吗？不是的，<strong>通过反射可以改变 String 对象的值</strong>。</p>
+<p>但是请谨慎那么做，<strong>因为一旦通过反射改变对应的 String 对象的值，后面再创建相同内容的 String 对象时都会是反射改变后的值</strong>，这时候在后面的代码逻辑执行时就会出现让你 “摸不着头脑” 的现象，具有迷惑性，出了奇葩的问题你也很难排除到原因。后面在 <code>代码4处</code> 我们会验证这个问题。</p>
+<p>先来看看如何通过反射改变 String 对象的内容：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WhyStringImutableTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">44String str = <span class="keyword">new</span> String(<span class="string">"123"</span>);</span><br><span class="line">        System.out.println(<span class="string">"反射前 str:"</span>+str);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field field = String.class.getDeclaredField(<span class="string">"value"</span>);</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">char</span>[] aa = (<span class="keyword">char</span>[]) field.get(str);</span><br><span class="line">            aa[<span class="number">1</span>] = <span class="string">'1'</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NoSuchFieldException | IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"反射后 str："</span>+str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">反射前 str:<span class="number">123</span></span><br><span class="line">反射后 str：<span class="number">113</span> <span class="comment">// 可见，反射后，str 的值确实改变了</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="代码-4"><a href="#代码-4" class="headerlink" title="代码 4:"></a>代码 4:</h4><p>下面我们来验证<strong>因为一旦通过反射改变对应的 String 对象的值，后面再创建相同内容的 String 对象时都会是反射改变后的值</strong>的问题：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WhyStringImutableTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">44String str = <span class="keyword">new</span> String(<span class="string">"123"</span>);</span><br><span class="line">        System.out.println(<span class="string">"反射前 str:"</span>+str);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field field = String.class.getDeclaredField(<span class="string">"value"</span>);</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">char</span>[] aa = (<span class="keyword">char</span>[]) field.get(str);</span><br><span class="line">            aa[<span class="number">1</span>] = <span class="string">'1'</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NoSuchFieldException | IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"反射后 str："</span>+str);</span><br><span class="line">        </span><br><span class="line">        String str2 = <span class="keyword">new</span> String(<span class="string">"123"</span>);</span><br><span class="line">      	System.out.println(<span class="string">"str2:"</span>+str2); <span class="comment">// 我们来看 str2 会输出什么，会输出 113？</span></span><br><span class="line">        System.out.println(<span class="string">"判断是否是同一对象："</span>+str == str2); <span class="comment">// 判断 str 和 str2 的内存地址值是否相等</span></span><br><span class="line">        System.out.println(<span class="string">"判断内容是否相同："</span>+str.equals(str2)); <span class="comment">// 判断 str 和 str2 的内容是否相等</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行结果如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">反射前 str:<span class="number">123</span></span><br><span class="line">反射后 str：<span class="number">113</span></span><br><span class="line">str2:<span class="number">113</span> <span class="comment">// 竟然不是123？？而是输出113，说明 str2 也是反射修改后的值。</span></span><br><span class="line">判断是否是同一对象：<span class="keyword">false</span> <span class="comment">// 输出 false，说明在内存中确实创建了两个不同的对象</span></span><br><span class="line">判断内容是否相同：<span class="keyword">true</span>   <span class="comment">// 输出true，说明依然判断为两个对象内容是相等的</span></span><br></pre></td></tr></table></figure></p>
+<p>由上面的输出结果，我们可知，反射后再新建相同内容的字符串对象时会是反射修改后的值，这就造成了很大迷惑性，在实际开发中要谨慎这么做。</p>
 <blockquote>
 <p>由体验入，顺瓜摸藤，追根溯源，为我所用。</p>
 </blockquote>
@@ -911,7 +918,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#解答："><span class="nav-number">1.</span> <span class="nav-text">解答：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码1处："><span class="nav-number">2.</span> <span class="nav-text">代码1处：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码2处："><span class="nav-number">3.</span> <span class="nav-text">代码2处：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码3处："><span class="nav-number">4.</span> <span class="nav-text">代码3处：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#解答："><span class="nav-number">1.</span> <span class="nav-text">解答：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码1处："><span class="nav-number">2.</span> <span class="nav-text">代码1处：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码2处："><span class="nav-number">3.</span> <span class="nav-text">代码2处：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码3处："><span class="nav-number">4.</span> <span class="nav-text">代码3处：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#拓展"><span class="nav-number">6.</span> <span class="nav-text">拓展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码-4"><span class="nav-number">7.</span> <span class="nav-text">代码 4:</span></a></li></ol></div>
             
 
           </div>
@@ -943,7 +950,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">26k 字</span>
+    <span title="站点总字数">28k 字</span>
   
 
   
@@ -952,7 +959,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点总阅读时长">24 分钟</span>
+    <span title="站点总阅读时长">26 分钟</span>
   
 </div>
 
