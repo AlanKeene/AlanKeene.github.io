@@ -105,18 +105,18 @@
 
 
 
-  <meta name="description" content="1. 前言今天，我们来探讨一个实际中不常用但却比较有意思的问题。它能帮助你理解 “HashSet中的键值是唯一的，不可重复的” 这句话的真正含义，也考验你对问题的思考深度。  注：实际应用中，我们一般是用 ArrayList 集合来存储相同的字符串的，不会用 HashSet 来存。  我们平时都看到或听说 HashSet 是不能用来存放重复的字符串的，是真的存放不了吗？如果面试问你这个问题，你能给">
+  <meta name="description" content="有一种学得快的方法，就是不要一次学太多。  1. 前言今天，我们来探讨一个实际中不常用但却比较有意思的问题。它能帮助你理解 “HashSet中的键值是唯一的，不可重复的” 这句话的真正含义，也考验你对问题的思考深度。  注：实际应用中，我们一般是用 ArrayList 集合来存储相同的字符串的，不会用 HashSet 来存。  我们平时都看到或听说 HashSet 是不能用来存放重复的字符串的，">
 <meta name="keywords" content="Java,HashSet,String">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一个有趣的问题，如何用HashSet来存储重复的字符串？">
 <meta property="og:url" content="https://www.alankeene.com/2019/0223/how-to-store-same-string-in-hashset.html">
 <meta property="og:site_name" content="Alan&#39;s Blog - Android">
-<meta property="og:description" content="1. 前言今天，我们来探讨一个实际中不常用但却比较有意思的问题。它能帮助你理解 “HashSet中的键值是唯一的，不可重复的” 这句话的真正含义，也考验你对问题的思考深度。  注：实际应用中，我们一般是用 ArrayList 集合来存储相同的字符串的，不会用 HashSet 来存。  我们平时都看到或听说 HashSet 是不能用来存放重复的字符串的，是真的存放不了吗？如果面试问你这个问题，你能给">
+<meta property="og:description" content="有一种学得快的方法，就是不要一次学太多。  1. 前言今天，我们来探讨一个实际中不常用但却比较有意思的问题。它能帮助你理解 “HashSet中的键值是唯一的，不可重复的” 这句话的真正含义，也考验你对问题的思考深度。  注：实际应用中，我们一般是用 ArrayList 集合来存储相同的字符串的，不会用 HashSet 来存。  我们平时都看到或听说 HashSet 是不能用来存放重复的字符串的，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-23T13:59:20.027Z">
+<meta property="og:updated_time" content="2019-02-23T14:16:20.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个有趣的问题，如何用HashSet来存储重复的字符串？">
-<meta name="twitter:description" content="1. 前言今天，我们来探讨一个实际中不常用但却比较有意思的问题。它能帮助你理解 “HashSet中的键值是唯一的，不可重复的” 这句话的真正含义，也考验你对问题的思考深度。  注：实际应用中，我们一般是用 ArrayList 集合来存储相同的字符串的，不会用 HashSet 来存。  我们平时都看到或听说 HashSet 是不能用来存放重复的字符串的，是真的存放不了吗？如果面试问你这个问题，你能给">
+<meta name="twitter:description" content="有一种学得快的方法，就是不要一次学太多。  1. 前言今天，我们来探讨一个实际中不常用但却比较有意思的问题。它能帮助你理解 “HashSet中的键值是唯一的，不可重复的” 这句话的真正含义，也考验你对问题的思考深度。  注：实际应用中，我们一般是用 ArrayList 集合来存储相同的字符串的，不会用 HashSet 来存。  我们平时都看到或听说 HashSet 是不能用来存放重复的字符串的，">
 
 
 
@@ -546,7 +546,10 @@
       
 
       
-        <h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><p>今天，我们来探讨一个实际中不常用但却比较有意思的问题。它能帮助你理解 “HashSet中的键值是唯一的，不可重复的” 这句话的真正含义，也考验你对问题的思考深度。</p>
+        <blockquote>
+<p>有一种学得快的方法，就是不要一次学太多。</p>
+</blockquote>
+<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><p>今天，我们来探讨一个实际中不常用但却比较有意思的问题。它能帮助你理解 “HashSet中的键值是唯一的，不可重复的” 这句话的真正含义，也考验你对问题的思考深度。</p>
 <blockquote>
 <p>注：实际应用中，我们一般是用 ArrayList 集合来存储相同的字符串的，不会用 HashSet 来存。</p>
 </blockquote>
