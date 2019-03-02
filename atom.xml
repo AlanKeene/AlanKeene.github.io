@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2019-02-23T14:16:20.443Z</updated>
+  <updated>2019-03-02T06:30:15.337Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>赛格还会重生吗？</title>
+    <link href="https://www.alankeene.com/2019/0302/sz-saige.html"/>
+    <id>https://www.alankeene.com/2019/0302/sz-saige.html</id>
+    <published>2019-03-02T06:17:29.000Z</published>
+    <updated>2019-03-02T06:30:15.337Z</updated>
+    
+    <content type="html"><![CDATA[<p><a id="more"></a><img src="/images/sz-saige.jpeg" alt="" title="深圳赛格"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;
+    
+    </summary>
+    
+      <category term="个人随笔" scheme="https://www.alankeene.com/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="赛格" scheme="https://www.alankeene.com/tags/%E8%B5%9B%E6%A0%BC/"/>
+    
+  </entry>
   
   <entry>
     <title>一个有趣的问题，如何用HashSet来存储重复的字符串？</title>
@@ -42,9 +64,9 @@
     
       <category term="Java" scheme="https://www.alankeene.com/tags/Java/"/>
     
-      <category term="String" scheme="https://www.alankeene.com/tags/String/"/>
-    
       <category term="HashSet" scheme="https://www.alankeene.com/tags/HashSet/"/>
+    
+      <category term="String" scheme="https://www.alankeene.com/tags/String/"/>
     
   </entry>
   
