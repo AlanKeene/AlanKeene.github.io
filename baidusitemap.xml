@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://www.alankeene.com/2019/0303/add-window-process.html</loc>
+    <lastmod>2019-03-03T11:37:22.255Z</lastmod>
+    <data>
+        <display>
+        <title>Window 的添加过程</title>
+        <pubTime>2019-03-03T10:02:53.000Z</pubTime>
+        
+        <tag>Window</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://www.alankeene.com/2019/0303/window-and-windowmanager.html</loc>
     <lastmod>2019-03-03T09:53:41.221Z</lastmod>
     <data>
@@ -221,6 +241,26 @@
     
     
   <url>
+    <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
+    <lastmod>2019-01-02T07:23:26.256Z</lastmod>
+    <data>
+        <display>
+        <title>Android 简史</title>
+        <pubTime>2018-04-17T05:36:17.000Z</pubTime>
+        
+        <tag>Android简史</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://www.alankeene.com/2018/0421/Android-Things.html</loc>
     <lastmod>2019-01-02T07:23:26.256Z</lastmod>
     <data>
@@ -236,26 +276,6 @@
            
              
               <breadCrumb title="Android Things" url="https://www.alankeene.com/categories/Android-Things/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
-    <lastmod>2019-01-02T07:23:26.256Z</lastmod>
-    <data>
-        <display>
-        <title>Android 简史</title>
-        <pubTime>2018-04-17T05:36:17.000Z</pubTime>
-        
-        <tag>Android简史</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
           
         </display>
     </data>
