@@ -9,6 +9,7 @@ Share about Android and Technology.
 注：原 Github 地址将停止维护.
 
 # 博客精选原创文章
+- [Window 和 WindowManager 是什么关系](https://www.alankeene.com/2019/0303/window-and-windowmanager.html)
 - [一个有趣的问题：如何用HashSet来存储相同的字符串](https://www.alankeene.com/2019/0223/how-to-store-same-string-in-hashset.html)
 - [Java 虚拟机是如何判断两个对象是否相同的？](https://www.alankeene.com/2019/0222/how-jvm-distinguish-object.html)
 - [为什么 Java 中 String 是不可变的？](https://www.alankeene.com/2019/0219/why-string-imutable.html)
