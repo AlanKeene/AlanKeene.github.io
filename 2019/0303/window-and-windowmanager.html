@@ -105,17 +105,15 @@
 
 
 
-  <meta name="description" content="Android Developer.玩 Android, 玩技术~追求通俗易懂的技术描述.喜欢追根溯源，探索技术的深度和原由.">
-<meta name="keywords" content="Android">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alan&#39;s Blog - Android">
-<meta property="og:url" content="https://www.alankeene.com/tags/HashSet/index.html">
+  <meta name="keywords" content="Window,WindowManager">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Window 和 WindowManager 是什么关系">
+<meta property="og:url" content="https://www.alankeene.com/2019/0303/window-and-windowmanager.html">
 <meta property="og:site_name" content="Alan&#39;s Blog - Android">
-<meta property="og:description" content="Android Developer.玩 Android, 玩技术~追求通俗易懂的技术描述.喜欢追根溯源，探索技术的深度和原由.">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-03T09:53:41.221Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alan&#39;s Blog - Android">
-<meta name="twitter:description" content="Android Developer.玩 Android, 玩技术~追求通俗易懂的技术描述.喜欢追根溯源，探索技术的深度和原由.">
+<meta name="twitter:title" content="Window 和 WindowManager 是什么关系">
 
 
 
@@ -124,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://www.alankeene.com/tags/HashSet/"/>
+  <link rel="canonical" href="https://www.alankeene.com/2019/0303/window-and-windowmanager.html"/>
 
 
 
@@ -134,7 +132,7 @@
   };
 </script>
 
-  <title>标签: HashSet | Alan's Blog - Android</title>
+  <title>Window 和 WindowManager 是什么关系 | Alan's Blog - Android</title>
   
 
 
@@ -200,7 +198,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -404,58 +402,295 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>HashSet<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.alankeene.com/2019/0303/window-and-windowmanager.html">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Alan Keene">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alan's Blog - Android">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/0223/how-to-store-same-string-in-hashset.html" itemprop="url">
-              
-                <span itemprop="name">一个有趣的问题，如何用HashSet来存储重复的字符串？</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Window 和 WindowManager 是什么关系</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-02-23T21:46:05+08:00"
-              content="2019-02-23" >
-          02-23
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T17:08:50+08:00">2019-03-03</time>
+            
 
-    </header>
-  </article>
+            
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/0303/window-and-windowmanager.html" class="leancloud_visitors" data-flag-title="Window 和 WindowManager 是什么关系">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计：</span>
+                
+                <span title="字数统计">836 字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长&asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a id="more"></a>如果问你三个简单的问题，你能答上来吗，你是怎么理解的呢。</p>
+<ol>
+<li>Window 和 WindowManager 是什么关系？</li>
+<li>Window 和 View 是什么关系？</li>
+<li>WindowManager 和 View 是什么关系？</li>
+</ol>
+<h1 id="Window-和-WindowManager-是什么关系？"><a href="#Window-和-WindowManager-是什么关系？" class="headerlink" title="Window 和 WindowManager 是什么关系？"></a>Window 和 WindowManager 是什么关系？</h1><p>Widow 是个抽象类，在 Android 中所有的视图都是通过 Window 来呈现的，包括 Activity、Dialog、Toast，它们的视图实际上都是附加在 Window 上的。Window 的具体实现类是 PhoneWindow，PhoneWindow 位于 WindowManagerService(WMS) 中。而 WindowManager 是外界访问 Window 的入口，WindowManager 和 WindowManagerService 之间通过 IPC 进行通信，从而实现对 Window 的访问和操作。</p>
+<h1 id="Window-和-View-是什么关系？"><a href="#Window-和-View-是什么关系？" class="headerlink" title="Window 和 View 是什么关系？"></a>Window 和 View 是什么关系？</h1><p>Window 是 View 的承载者，而 View 是 Window 的体现者。两者之间通过 ViewRootImpl 建立联系。</p>
+<p>怎么理解这句话呢？</p>
+<p>Window 是 View 的承载者：Android 中的所有视图都是附加在 Window 上呈现出来的 。</p>
+<p>View 是 Window 的体现者：因为 Window 是个抽象的概念，并不实际存在，View 才是 Window 存在的实体。</p>
+<p>而 ViewRootImpl 是用来建立 Window 和 View 之间的联系的，是两者之间的纽带。</p>
+<h1 id="WindowManager-和-View-是什么关系？"><a href="#WindowManager-和-View-是什么关系？" class="headerlink" title="WindowManager 和 View 是什么关系？"></a>WindowManager 和 View 是什么关系？</h1><p>WindowManager 是 View 的直接管理者，对 View 的添加、删除、更新操作都是通过 WindowManager 来完成的，对应于 WindowManager 的 <code>addView</code>、<code>removeView</code>、<code>updateViewLayout</code> 三个方法。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>让我们来一场点赞之交？</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Alan Keene 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="Alan Keene 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Alan Keene</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.alankeene.com/2019/0303/window-and-windowmanager.html" title="Window 和 WindowManager 是什么关系">https://www.alankeene.com/2019/0303/window-and-windowmanager.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Window/" rel="tag"># Window</a>
+          
+            <a href="/tags/WindowManager/" rel="tag"># WindowManager</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/0302/sz-saige.html" rel="next" title="赛格还会重生吗？">
+                <i class="fa fa-chevron-left"></i> 赛格还会重生吗？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTQzMS8xMTk2Nw=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -476,8 +711,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -643,6 +887,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Window-和-WindowManager-是什么关系？"><span class="nav-number">1.</span> <span class="nav-text">Window 和 WindowManager 是什么关系？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Window-和-View-是什么关系？"><span class="nav-number">2.</span> <span class="nav-text">Window 和 View 是什么关系？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WindowManager-和-View-是什么关系？"><span class="nav-number">3.</span> <span class="nav-text">WindowManager 和 View 是什么关系？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -839,6 +1099,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
 
   
 
@@ -863,6 +1127,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
@@ -1376,7 +1651,7 @@
   <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
   <script type="text/javascript">
   
-    bookmark.loadBookmark();
+    bookmark.scrollToMark('auto', "#more");
   
   </script>
 

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Window 和 WindowManager 是什么关系]]></title>
+    <url>%2F2019%2F0303%2Fwindow-and-windowmanager.html</url>
+    <content type="text"><![CDATA[如果问你三个简单的问题，你能答上来吗，你是怎么理解的呢。 Window 和 WindowManager 是什么关系？ Window 和 View 是什么关系？ WindowManager 和 View 是什么关系？ Window 和 WindowManager 是什么关系？Widow 是个抽象类，在 Android 中所有的视图都是通过 Window 来呈现的，包括 Activity、Dialog、Toast，它们的视图实际上都是附加在 Window 上的。Window 的具体实现类是 PhoneWindow，PhoneWindow 位于 WindowManagerService(WMS) 中。而 WindowManager 是外界访问 Window 的入口，WindowManager 和 WindowManagerService 之间通过 IPC 进行通信，从而实现对 Window 的访问和操作。 Window 和 View 是什么关系？Window 是 View 的承载者，而 View 是 Window 的体现者。两者之间通过 ViewRootImpl 建立联系。 怎么理解这句话呢？ Window 是 View 的承载者：Android 中的所有视图都是附加在 Window 上呈现出来的 。 View 是 Window 的体现者：因为 Window 是个抽象的概念，并不实际存在，View 才是 Window 存在的实体。 而 ViewRootImpl 是用来建立 Window 和 View 之间的联系的，是两者之间的纽带。 WindowManager 和 View 是什么关系？WindowManager 是 View 的直接管理者，对 View 的添加、删除、更新操作都是通过 WindowManager 来完成的，对应于 WindowManager 的 addView、removeView、updateViewLayout 三个方法。]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Window</tag>
+        <tag>WindowManager</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[赛格还会重生吗？]]></title>
     <url>%2F2019%2F0302%2Fsz-saige.html</url>
     <content type="text"><![CDATA[]]></content>

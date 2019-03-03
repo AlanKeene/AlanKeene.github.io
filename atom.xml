@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2019-03-02T06:30:15.337Z</updated>
+  <updated>2019-03-03T09:53:41.221Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Window 和 WindowManager 是什么关系</title>
+    <link href="https://www.alankeene.com/2019/0303/window-and-windowmanager.html"/>
+    <id>https://www.alankeene.com/2019/0303/window-and-windowmanager.html</id>
+    <published>2019-03-03T09:08:50.000Z</published>
+    <updated>2019-03-03T09:53:41.221Z</updated>
+    
+    <content type="html"><![CDATA[<p><a id="more"></a>如果问你三个简单的问题，你能答上来吗，你是怎么理解的呢。</p><ol><li>Window 和 WindowManager 是什么关系？</li><li>Window 和 View 是什么关系？</li><li>WindowManager 和 View 是什么关系？</li></ol><h1 id="Window-和-WindowManager-是什么关系？"><a href="#Window-和-WindowManager-是什么关系？" class="headerlink" title="Window 和 WindowManager 是什么关系？"></a>Window 和 WindowManager 是什么关系？</h1><p>Widow 是个抽象类，在 Android 中所有的视图都是通过 Window 来呈现的，包括 Activity、Dialog、Toast，它们的视图实际上都是附加在 Window 上的。Window 的具体实现类是 PhoneWindow，PhoneWindow 位于 WindowManagerService(WMS) 中。而 WindowManager 是外界访问 Window 的入口，WindowManager 和 WindowManagerService 之间通过 IPC 进行通信，从而实现对 Window 的访问和操作。</p><h1 id="Window-和-View-是什么关系？"><a href="#Window-和-View-是什么关系？" class="headerlink" title="Window 和 View 是什么关系？"></a>Window 和 View 是什么关系？</h1><p>Window 是 View 的承载者，而 View 是 Window 的体现者。两者之间通过 ViewRootImpl 建立联系。</p><p>怎么理解这句话呢？</p><p>Window 是 View 的承载者：Android 中的所有视图都是附加在 Window 上呈现出来的 。</p><p>View 是 Window 的体现者：因为 Window 是个抽象的概念，并不实际存在，View 才是 Window 存在的实体。</p><p>而 ViewRootImpl 是用来建立 Window 和 View 之间的联系的，是两者之间的纽带。</p><h1 id="WindowManager-和-View-是什么关系？"><a href="#WindowManager-和-View-是什么关系？" class="headerlink" title="WindowManager 和 View 是什么关系？"></a>WindowManager 和 View 是什么关系？</h1><p>WindowManager 是 View 的直接管理者，对 View 的添加、删除、更新操作都是通过 WindowManager 来完成的，对应于 WindowManager 的 <code>addView</code>、<code>removeView</code>、<code>updateViewLayout</code> 三个方法。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.alankeene.com/categories/Android/"/>
+    
+    
+      <category term="Window" scheme="https://www.alankeene.com/tags/Window/"/>
+    
+      <category term="WindowManager" scheme="https://www.alankeene.com/tags/WindowManager/"/>
+    
+  </entry>
   
   <entry>
     <title>赛格还会重生吗？</title>
