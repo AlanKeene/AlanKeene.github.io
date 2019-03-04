@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>https://www.alankeene.com/2019/0304/java-new-features.html</loc>
+    <lastmod>2019-03-04T03:32:32.563Z</lastmod>
+    <data>
+        <display>
+        <title>Java8 和 Java9 的主要新特性</title>
+        <pubTime>2019-03-04T02:42:13.000Z</pubTime>
+        
+        <tag>Java8</tag>
+         
+        <tag>Java9</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://www.alankeene.com/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>https://www.alankeene.com/2019/0303/add-window-process.html</loc>
     <lastmod>2019-03-03T11:37:22.255Z</lastmod>
     <data>
@@ -173,7 +196,6 @@
     </url>
 
     
-    
   <url>
     <loc>https://www.alankeene.com/2019/0106/AndroidStudio-mac-shortcuts.html</loc>
     <lastmod>2019-01-07T05:45:48.522Z</lastmod>
@@ -241,26 +263,6 @@
     
     
   <url>
-    <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
-    <lastmod>2019-01-02T07:23:26.256Z</lastmod>
-    <data>
-        <display>
-        <title>Android 简史</title>
-        <pubTime>2018-04-17T05:36:17.000Z</pubTime>
-        
-        <tag>Android简史</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.alankeene.com/2018/0421/Android-Things.html</loc>
     <lastmod>2019-01-02T07:23:26.256Z</lastmod>
     <data>
@@ -276,6 +278,26 @@
            
              
               <breadCrumb title="Android Things" url="https://www.alankeene.com/categories/Android-Things/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
+    <lastmod>2019-01-02T07:23:26.256Z</lastmod>
+    <data>
+        <display>
+        <title>Android 简史</title>
+        <pubTime>2018-04-17T05:36:17.000Z</pubTime>
+        
+        <tag>Android简史</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
           
         </display>
     </data>

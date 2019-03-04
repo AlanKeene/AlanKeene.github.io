@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2019-03-03T11:37:22.255Z</updated>
+  <updated>2019-03-04T03:32:32.563Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java8 和 Java9 的主要新特性</title>
+    <link href="https://www.alankeene.com/2019/0304/java-new-features.html"/>
+    <id>https://www.alankeene.com/2019/0304/java-new-features.html</id>
+    <published>2019-03-04T02:42:13.000Z</published>
+    <updated>2019-03-04T03:32:32.563Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Java-8-的主要新特性"><a href="#Java-8-的主要新特性" class="headerlink" title="Java 8 的主要新特性"></a>Java 8 的主要新特性</h1><h2 id="1-Lambda-表达式"><a href="#1-Lambda-表达式" class="headerlink" title="1.Lambda 表达式"></a>1.Lambda 表达式</h2><p>Lambda 允许把函数作为一个方法的参数传递进方法中。</p><p>作用：解决 Java 被诟病的匿名内部类的问题。</p><h2 id="2-接口中可增加了默认方法"><a href="#2-接口中可增加了默认方法" class="headerlink" title="2.接口中可增加了默认方法"></a>2.接口中可增加了默认方法</h2><p>作用：在接口中也可以有实现方法了。</p><h2 id="3-HashMap-底层数据结构的变化"><a href="#3-HashMap-底层数据结构的变化" class="headerlink" title="3.HashMap 底层数据结构的变化"></a>3.HashMap 底层数据结构的变化</h2><p>java 8 之前，HashMap 底层的数据结构是数组+链表实现的， Java 8  之后是数组+链表+红黑树实现的，当链表的长度超过 8 之后，会转换成红黑树。</p><p>作用：解决因哈希冲突导致的链表过长，查询效率低的问题。</p><h2 id="4-Stream-API"><a href="#4-Stream-API" class="headerlink" title="4.Stream API"></a>4.Stream API</h2><p>新添加 Stream API (java.util.stream)，把真正函数式编程的风格引入 Java。</p><h2 id="5-提供一个新的-JavaScript-引擎"><a href="#5-提供一个新的-JavaScript-引擎" class="headerlink" title="5.提供一个新的 JavaScript 引擎"></a>5.提供一个新的 JavaScript 引擎</h2><p>Java 8 提供了一个新的 Nashorn JavaScript 引擎，它允许在 JVM 上运行特定的 JavaScript 应用。</p><p>作用：解决日益增长的 Java 跟 JS 交互混合的需求。</p><h1 id="Java-9-新特性"><a href="#Java-9-新特性" class="headerlink" title="Java 9 新特性"></a>Java 9 新特性</h1><h2 id="1-模块系统"><a href="#1-模块系统" class="headerlink" title="1.模块系统"></a>1.模块系统</h2><p>模块是一个包的容器，Java 9 最大的变化之一是引入模块系统。（Jigsaw 项目）</p><p>作用：解决大型项目模块化开发的需求。</p><h2 id="2-支持-HTTP-2-标准"><a href="#2-支持-HTTP-2-标准" class="headerlink" title="2.支持 HTTP/2 标准"></a>2.支持 HTTP/2 标准</h2><p>HTTP/2 标准是 HTTP 协议的最新版本，新的 HTTPClient API 支持 Websocket 和 HTTP2 流以及服务器推送特性。</p><h2 id="3-提供创建不可变集合的静态工厂方法"><a href="#3-提供创建不可变集合的静态工厂方法" class="headerlink" title="3.提供创建不可变集合的静态工厂方法"></a>3.提供创建不可变集合的静态工厂方法</h2><p>List、Set、Map 接口中，提供新的静态工厂方法直接创建不可变的集合实例。</p><p>作用：创建不可变集合更方便，一行代码就搞定，节省了开销。</p><h2 id="4-私有接口方法"><a href="#4-私有接口方法" class="headerlink" title="4.私有接口方法"></a>4.私有接口方法</h2><p>在接口中也允许编写 private 修饰的私有方法了。</p><p>作用：增强了接口的功能，提高了可扩展性。</p><h2 id="5-轻量级的-JSON-API"><a href="#5-轻量级的-JSON-API" class="headerlink" title="5.轻量级的 JSON API"></a>5.轻量级的 JSON API</h2><p>内置了一个轻量级的 JSON API。</p><h2 id="6-引入响应式流-API"><a href="#6-引入响应式流-API" class="headerlink" title="6.引入响应式流 API"></a>6.引入响应式流 API</h2><p>Java 9 引入了新的响应式流 API。</p><p>作用：支持响应式编程的需求。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;!— more --&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://www.alankeene.com/categories/Java/"/>
+    
+    
+      <category term="Java8" scheme="https://www.alankeene.com/tags/Java8/"/>
+    
+      <category term="Java9" scheme="https://www.alankeene.com/tags/Java9/"/>
+    
+  </entry>
   
   <entry>
     <title>Window 的添加过程</title>
