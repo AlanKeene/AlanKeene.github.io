@@ -105,18 +105,18 @@
 
 
 
-  <meta name="description" content="有一种学得快的方法，就是不要一次学太多。  在Java程序运行时，会产生那么多的对象，那 Java 虚拟机是如何判断两个对象是否相同的呢？判断的流程是什么？ 参考解答：Java 虚拟机会先判断两个对象的hashCode是否相同，如果hashCode不同，则说明肯定是两个不同的对象了；如果hashCode相同再通过equals()方法进行进一步比较，如果equals方法返回true，则说明两个对象">
+  <meta name="description" content="有一种学得快的方法，就是不要一次学太多。  JDK 是如何判断两个对象是否相同的呢？判断的流程是什么？ 参考解答：JDK 会先判断两个对象的hashCode是否相同，如果hashCode不同，则说明肯定是两个不同的对象了；如果hashCode相同再通过equals()方法进行进一步比较，如果equals方法返回true，则说明两个对象是相同的，如果equals方法返回false说明两个对象不同。">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你有没有想过，Java虚拟机是如何判断两个对象是否相同的？判断的流程是什么？">
-<meta property="og:url" content="https://www.alankeene.com/2019/0222/how-jvm-distinguish-object.html">
+<meta property="og:title" content="JDK是如何判断两个对象是否相同的？判断的流程是什么？">
+<meta property="og:url" content="https://www.alankeene.com/2019/0222/how-jdk-distinguish-object.html">
 <meta property="og:site_name" content="Alan&#39;s Blog - Android">
-<meta property="og:description" content="有一种学得快的方法，就是不要一次学太多。  在Java程序运行时，会产生那么多的对象，那 Java 虚拟机是如何判断两个对象是否相同的呢？判断的流程是什么？ 参考解答：Java 虚拟机会先判断两个对象的hashCode是否相同，如果hashCode不同，则说明肯定是两个不同的对象了；如果hashCode相同再通过equals()方法进行进一步比较，如果equals方法返回true，则说明两个对象">
+<meta property="og:description" content="有一种学得快的方法，就是不要一次学太多。  JDK 是如何判断两个对象是否相同的呢？判断的流程是什么？ 参考解答：JDK 会先判断两个对象的hashCode是否相同，如果hashCode不同，则说明肯定是两个不同的对象了；如果hashCode相同再通过equals()方法进行进一步比较，如果equals方法返回true，则说明两个对象是相同的，如果equals方法返回false说明两个对象不同。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-23T14:15:34.823Z">
+<meta property="og:updated_time" content="2019-03-06T04:34:44.587Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你有没有想过，Java虚拟机是如何判断两个对象是否相同的？判断的流程是什么？">
-<meta name="twitter:description" content="有一种学得快的方法，就是不要一次学太多。  在Java程序运行时，会产生那么多的对象，那 Java 虚拟机是如何判断两个对象是否相同的呢？判断的流程是什么？ 参考解答：Java 虚拟机会先判断两个对象的hashCode是否相同，如果hashCode不同，则说明肯定是两个不同的对象了；如果hashCode相同再通过equals()方法进行进一步比较，如果equals方法返回true，则说明两个对象">
+<meta name="twitter:title" content="JDK是如何判断两个对象是否相同的？判断的流程是什么？">
+<meta name="twitter:description" content="有一种学得快的方法，就是不要一次学太多。  JDK 是如何判断两个对象是否相同的呢？判断的流程是什么？ 参考解答：JDK 会先判断两个对象的hashCode是否相同，如果hashCode不同，则说明肯定是两个不同的对象了；如果hashCode相同再通过equals()方法进行进一步比较，如果equals方法返回true，则说明两个对象是相同的，如果equals方法返回false说明两个对象不同。">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="https://www.alankeene.com/2019/0222/how-jvm-distinguish-object.html"/>
+  <link rel="canonical" href="https://www.alankeene.com/2019/0222/how-jdk-distinguish-object.html"/>
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>你有没有想过，Java虚拟机是如何判断两个对象是否相同的？判断的流程是什么？ | Alan's Blog - Android</title>
+  <title>JDK是如何判断两个对象是否相同的？判断的流程是什么？ | Alan's Blog - Android</title>
   
 
 
@@ -423,7 +423,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.alankeene.com/2019/0222/how-jvm-distinguish-object.html">
+    <link itemprop="mainEntityOfPage" href="https://www.alankeene.com/2019/0222/how-jdk-distinguish-object.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Alan Keene">
@@ -440,7 +440,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">你有没有想过，Java虚拟机是如何判断两个对象是否相同的？判断的流程是什么？</h2>
+          <h2 class="post-title" itemprop="name headline">JDK是如何判断两个对象是否相同的？判断的流程是什么？</h2>
         
 
         <div class="post-meta">
@@ -487,7 +487,7 @@
 
           
           
-             <span id="/2019/0222/how-jvm-distinguish-object.html" class="leancloud_visitors" data-flag-title="你有没有想过，Java虚拟机是如何判断两个对象是否相同的？判断的流程是什么？">
+             <span id="/2019/0222/how-jdk-distinguish-object.html" class="leancloud_visitors" data-flag-title="JDK是如何判断两个对象是否相同的？判断的流程是什么？">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -512,7 +512,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">2.5k 字</span>
+                <span title="字数统计">2.4k 字</span>
               
 
               
@@ -549,18 +549,18 @@
         <blockquote>
 <p>有一种学得快的方法，就是不要一次学太多。</p>
 </blockquote>
-<p>在Java程序运行时，会产生那么多的对象，那 Java 虚拟机是如何判断两个对象是否相同的呢？判断的流程是什么？</p>
-<p><strong>参考解答：</strong><br>Java 虚拟机会先判断两个对象的hashCode是否相同，如果hashCode不同，则说明肯定是两个不同的对象了；如果hashCode相同再通过equals()方法进行进一步比较，如果equals方法返回true，则说明两个对象是相同的，如果equals方法返回false说明两个对象不同。</p>
-<h4 id="如何验证"><a href="#如何验证" class="headerlink" title="如何验证"></a>如何验证</h4><p>怎么来验证这个问题呢？我们知道HashSet是不允许存储相同的键值的。所以我们可以用HashSet存储两个相同的键值来模拟，看Java虚拟机是如何做判断和识别的，从而验证我们的猜想。</p>
+<p>JDK 是如何判断两个对象是否相同的呢？判断的流程是什么？</p>
+<p><strong>参考解答：</strong><br>JDK 会先判断两个对象的hashCode是否相同，如果hashCode不同，则说明肯定是两个不同的对象了；如果hashCode相同再通过equals()方法进行进一步比较，如果equals方法返回true，则说明两个对象是相同的，如果equals方法返回false说明两个对象不同。</p>
+<h4 id="如何验证"><a href="#如何验证" class="headerlink" title="如何验证"></a>如何验证</h4><p>怎么来验证这个问题呢？我们知道HashSet是不允许存储相同的键值的。所以我们可以用HashSet存储两个相同的键值来模拟，看 JDK 是如何做判断和识别的，从而验证我们的猜想。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先自定义一个类并复写 hashCode 和 equals 方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"判断 hashCode"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// 返回1，说明所有新建的对象的哈希值都为1，也就是相同</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"判断 equals"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">// 返回true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>接下来我们用HashSet来存储两个自定义的CustomClass的对象，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashSetTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      </span><br><span class="line">        HashSet&lt;CustomClass&gt; hs = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        CustomClass cs1 = <span class="keyword">new</span> CustomClass();</span><br><span class="line">        CustomClass cs2 = <span class="keyword">new</span> CustomClass();</span><br><span class="line">        hs.add(cs1);</span><br><span class="line">        hs.add(cs2);</span><br><span class="line">        System.out.println(<span class="string">"----hs添加完毕"</span>);</span><br><span class="line">        System.out.println(<span class="string">"hs:"</span>+hs); <span class="comment">// 打印一下hashSet集合看里面存放了什么</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>打印结果如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">判断 hashCode </span><br><span class="line">判断 hashCode</span><br><span class="line">判断 equals</span><br><span class="line">----hs添加完毕</span><br><span class="line">判断 hashCode <span class="comment">// 此处的判断是打印输出语句执行时调用的，与分析本问题无关</span></span><br><span class="line">hs:[com.alankeene.javalib.collections.CustomClass@<span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
-<p>结果分析：<br>执行 <code>hs.add(cs1)</code> 语句的时候，Java 虚拟机会先判断 cs1 所指向对象的hashCode，因为是第一次往HashSet集合里面存放元素，该元素 hashCode 在集合中肯定是还没存在的，这是个新的元素，所以直接存放进集合中，不用调用 cs1 所指向对象的 equals 方法。<br>当执行 <code>hs.add(cs2)</code> 语句时，这是第二次往集合里存放元素，有新的元素 cs2 要添加进来，那先要调用 cs2 所指向对象的 hashCode 方法看看它的哈希值是不是与集合中已有元素的哈希值重复了，发现重复了，哈希值都是1，那有可能是同一个对象，那就要调用 cs2 所指向对象的 equals 方法做进一步判断，发现 equals 方法返回 true，则判断为是重复的元素，就不往集合里添加了。</p>
+<p>结果分析：<br>执行 <code>hs.add(cs1)</code> 语句的时候，JDK 会先判断 cs1 所指向对象的hashCode，因为是第一次往HashSet集合里面存放元素，该元素 hashCode 在集合中肯定是还没存在的，这是个新的元素，所以直接存放进集合中，不用调用 cs1 所指向对象的 equals 方法。<br>当执行 <code>hs.add(cs2)</code> 语句时，这是第二次往集合里存放元素，有新的元素 cs2 要添加进来，那先要调用 cs2 所指向对象的 hashCode 方法看看它的哈希值是不是与集合中已有元素的哈希值重复了，发现重复了，哈希值都是1，那有可能是同一个对象，那就要调用 cs2 所指向对象的 equals 方法做进一步判断，发现 equals 方法返回 true，则判断为是重复的元素，就不往集合里添加了。</p>
 <p>所以最终打印 HashSet 集合的时候可以看到，集合中只存放了一个元素。</p>
 <p>我们再反证一下，把 equals 方法改为返回 false，模拟两个hashCode相同，但是是两个不同的对象的情景。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"判断 hashCode"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// 返回1，说明所有新建的对象的哈希值都为1，也就是相同</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"判断 equals"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">// 返回false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>打印结果会如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">判断 hashCode </span><br><span class="line">判断 hashCode</span><br><span class="line">判断 equals</span><br><span class="line">----hs添加完毕</span><br><span class="line">判断 hashCode <span class="comment">// 此处的判断是打印输出语句执行时调用的，与分析本问题无关</span></span><br><span class="line">判断 hashCode <span class="comment">// 此处的判断是打印输出语句执行时调用的，与分析本问题无关</span></span><br><span class="line">hs:[com.alankeene.javalib.collections.CustomClass@<span class="number">1</span>, com.alankeene.javalib.collections.CustomClass@<span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
-<p>会发现，HashSet集合中存放了两个元素了，说明虽然 cs1 和 cs2 的哈希值相同，但是虚拟机判断为不同的元素并存入集合中了。</p>
-<p>由此，验证了我们的猜想。Java 虚拟机是先判断 hashCode，如果 hashCode 相同再通过 equals 去判断两个对象是否相同的。</p>
+<p>会发现，HashSet集合中存放了两个元素了，说明虽然 cs1 和 cs2 的哈希值相同，但是 JDK 判断为不同的元素并存入集合中了。</p>
+<p>由此，验证了我们的猜想。JDK 是先判断 hashCode，如果 hashCode 相同再通过 equals 去判断两个对象是否相同的。</p>
 
       
     </div>
@@ -611,7 +611,7 @@
     <strong>本文作者： </strong>Alan Keene</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.alankeene.com/2019/0222/how-jvm-distinguish-object.html" title="你有没有想过，Java虚拟机是如何判断两个对象是否相同的？判断的流程是什么？">https://www.alankeene.com/2019/0222/how-jvm-distinguish-object.html</a>
+    <a href="https://www.alankeene.com/2019/0222/how-jdk-distinguish-object.html" title="JDK是如何判断两个对象是否相同的？判断的流程是什么？">https://www.alankeene.com/2019/0222/how-jdk-distinguish-object.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</li>

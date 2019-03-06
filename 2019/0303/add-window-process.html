@@ -111,7 +111,7 @@
 <meta property="og:url" content="https://www.alankeene.com/2019/0303/add-window-process.html">
 <meta property="og:site_name" content="Alan&#39;s Blog - Android">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-03T11:37:22.255Z">
+<meta property="og:updated_time" content="2019-03-06T04:59:09.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Window 的添加过程">
 
@@ -564,7 +564,7 @@
 <p>可以看到，是调用了 <code>scheduleTraversals</code> 方法进行绘制，我们知道 <code>scheduleTraversals</code> 是 View 执行绘制过程的入口方法，该方法会经过测量、布局、绘制这三个过程把 View 绘制出来。</p>
 <p>那 View 绘制出来以后是怎么通过IPC调用的方式添加到 Window 中的呢？</p>
 <p>我们知道，WindowManager 是外界访问 Window 的入口，所以最终 WindowManager 会通过 IPC 的方式调用 WindowManagerService 的 <code>addWindow</code> 方法，这样一来， Window 的添加请求就交给了 WindowManagerService 来处理了，然后 WindowManagerService 会经过一系列的操作将 View 添加到 Window 中并展示出来。</p>
-<p>作为应用层开发者来说，了解到这个程度就差不多了，没必要去深究 WindowManagerService 的实现细节，至于 WindowManagerService 是如何处理 Window 的添加请求的，感兴趣的读者可以去查看源码。</p>
+<p>作为应用层开发者来说，了解到这个程度个人觉得就可以了，没必要去深究 WindowManagerService 的实现细节，至于 WindowManagerService 是如何处理 Window 的添加请求的，感兴趣的读者可以去查看源码。</p>
 <p>​        参考书籍：《Android 开发艺术探索》</p>
 
       
@@ -657,8 +657,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/0303/window-and-windowmanager.html" rel="next" title="Window 和 WindowManager 是什么关系">
-                <i class="fa fa-chevron-left"></i> Window 和 WindowManager 是什么关系
+              <a href="/2019/0303/window-and-windowmanager.html" rel="next" title="Window、WindowManager、View 之间的关系">
+                <i class="fa fa-chevron-left"></i> Window、WindowManager、View 之间的关系
               </a>
             
           </div>

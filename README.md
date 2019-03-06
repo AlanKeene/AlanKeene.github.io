@@ -12,7 +12,7 @@ Share about Android and Technology.
 - [Window 的添加过程](https://www.alankeene.com/2019/0303/add-window-process.html)
 - [Window 和 WindowManager 是什么关系](https://www.alankeene.com/2019/0303/window-and-windowmanager.html)
 - [一个有趣的问题：如何用HashSet来存储相同的字符串](https://www.alankeene.com/2019/0223/how-to-store-same-string-in-hashset.html)
-- [Java 虚拟机是如何判断两个对象是否相同的？](https://www.alankeene.com/2019/0222/how-jvm-distinguish-object.html)
+- [JDK 是如何判断两个对象是否相同的？判断的流程是什么？](https://www.alankeene.com/2019/0222/how-jdk-distinguish-object.html)
 - [为什么 Java 中 String 是不可变的？](https://www.alankeene.com/2019/0219/why-string-imutable.html)
 - [最安全的 hexo 多电脑同步博客解决方案--非新建分支](https://www.alankeene.com/2019/0102/hexo-perfect-synchronize.html)
 - [dryrun 在 windows 上的使用教程](https://www.alankeene.com/2018/0618/use-dryrun-in-windows.html)
