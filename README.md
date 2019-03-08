@@ -9,6 +9,8 @@ Share about Android and Technology.
 注：原 Github 地址将停止维护.
 
 # 博客精选原创文章
+- [Android事件分发过程源码阅读总结](https://www.alankeene.com/2019/0308/view-dispatch-process.html)
+- [Android事件分发机制的一些基本知识](https://www.alankeene.com/2019/0308/view-dispatch-basic-knowledge.html)
 - [Window 的添加过程](https://www.alankeene.com/2019/0303/add-window-process.html)
 - [Window 和 WindowManager 是什么关系](https://www.alankeene.com/2019/0303/window-and-windowmanager.html)
 - [一个有趣的问题：如何用HashSet来存储相同的字符串](https://www.alankeene.com/2019/0223/how-to-store-same-string-in-hashset.html)
