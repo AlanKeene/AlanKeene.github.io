@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.alankeene.com/about/index.html</loc>
+    
+    <lastmod>2019-03-10T09:55:55.903Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.alankeene.com/2019/0308/view-dispatch-process.html</loc>
     
     <lastmod>2019-03-08T11:13:22.060Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://www.alankeene.com/2019/0304/java-new-features.html</loc>
     
     <lastmod>2019-03-04T03:32:32.563Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.alankeene.com/about/index.html</loc>
-    
-    <lastmod>2019-03-04T03:32:28.674Z</lastmod>
     
   </url>
   
