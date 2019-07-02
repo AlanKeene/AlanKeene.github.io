@@ -9,6 +9,7 @@ Share about Android and Technology.
 注：原 Github 地址将停止维护.
 
 # 博客精选原创文章
+- [寻找一个字符串中出现次数最多的字符以及出现的次数](https://www.alankeene.com/2019/0619/Find-char-appear-more-frequently-in-String.html)
 - [Android事件分发过程源码阅读总结](https://www.alankeene.com/2019/0308/view-dispatch-process.html)
 - [Android事件分发机制的一些基本知识](https://www.alankeene.com/2019/0308/view-dispatch-basic-knowledge.html)
 - [Window 的添加过程](https://www.alankeene.com/2019/0303/add-window-process.html)
