@@ -3,6 +3,26 @@
 
 
     
+  <url>
+    <loc>https://www.alankeene.com/2019/0702/Connection-reset-by-peer.html</loc>
+    <lastmod>2019-07-02T08:56:46.278Z</lastmod>
+    <data>
+        <display>
+        <title>解决 hexo d 提示：ssh_exchange_identification：read：Connection reset by peer 的问题</title>
+        <pubTime>2019-07-02T07:07:39.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="日常解决问题集锦" url="https://www.alankeene.com/categories/%E6%97%A5%E5%B8%B8%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://www.alankeene.com/2019/0619/Find-char-appear-more-frequently-in-String.html</loc>
@@ -329,26 +349,6 @@
     
     
   <url>
-    <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
-    <lastmod>2019-01-02T07:23:26.256Z</lastmod>
-    <data>
-        <display>
-        <title>Android 简史</title>
-        <pubTime>2018-04-17T05:36:17.000Z</pubTime>
-        
-        <tag>Android简史</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.alankeene.com/2018/0421/Android-Things.html</loc>
     <lastmod>2019-01-02T07:23:26.256Z</lastmod>
     <data>
@@ -364,6 +364,26 @@
            
              
               <breadCrumb title="Android Things" url="https://www.alankeene.com/categories/Android-Things/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
+    <lastmod>2019-01-02T07:23:26.256Z</lastmod>
+    <data>
+        <display>
+        <title>Android 简史</title>
+        <pubTime>2018-04-17T05:36:17.000Z</pubTime>
+        
+        <tag>Android简史</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
           
         </display>
     </data>

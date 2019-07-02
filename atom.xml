@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2019-06-20T07:15:06.633Z</updated>
+  <updated>2019-07-02T08:56:46.278Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决 hexo d 提示：ssh_exchange_identification：read：Connection reset by peer 的问题</title>
+    <link href="https://www.alankeene.com/2019/0702/Connection-reset-by-peer.html"/>
+    <id>https://www.alankeene.com/2019/0702/Connection-reset-by-peer.html</id>
+    <published>2019-07-02T07:07:39.000Z</published>
+    <updated>2019-07-02T08:56:46.278Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>今天写完博客，用 hexo d 部署到 github，突然报了个错误：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Error: ssh_exchange_identification: read: Connection reset by peer</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure><h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>最后发现是上网环境导致的，因为现在在图书馆，连的是图书馆的 wifi，<strong>可能是图书馆的防火墙或者代理服务器</strong>导致不能连接到 github，换个上网网络就能 hexo d 提交了。</p><p>所以如果你的上网环境从家里换成公司或者其他公共场合，就要注意了，可能是提供网络的路由器或者机构的防火墙搞的鬼哦。</p><p>最后发现原来是被图书馆的 wifi 网络整蛊了之后，有点抓狂，在此记录一下问题以及解决问题的思路，希望对遇到同样问题的人有所帮助。</p><h1 id="解决问题的思路过程"><a href="#解决问题的思路过程" class="headerlink" title="解决问题的思路过程"></a>解决问题的思路过程</h1><p>咦，奇了怪了，前几天明明还好好的，突然就提交不了了，看日志大意是：SSH验证失败，连接被重置了。</p><ol><li><p>看到 <code>Please make sure you have the correct access rightsand the repository exists.</code> ，刚开始怀疑是不是远程仓库的密钥过期了，因为我之前遇到过密钥过期导致提交不上的情况，所以赶紧去远端仓库查看一下密钥的有效期限，发现并没有过期。排除这种可能。✖️</p></li><li><p>会不会是 SSH 密钥的问题？去确认一下，远端仓库密钥没有更改过，回想一下最近本机也没有重新生成过 SSH key，所以这种可能也排除。✖️</p></li><li><p>实在没有想到好的解决方法，OK，google，在 StackOverFlow 上发现说这种异常的连接重置，原因可能是：<code>服务器进程退出时没有关闭连接，或者crash，或者防火墙或代理、或者负载平衡器干扰连接</code> 导致的。</p><p><a href="https://stackoverflow.com/a/27692498/9031185" target="_blank" rel="noopener">https://stackoverflow.com/a/27692498/9031185</a></p><p>OK，我确实开了代理，检查一下防火墙是否关闭，把代理也关了，重试还是没解决。也排除。✖️</p></li><li><p>缩小关键字，继续搜索，搜索 <code>hexo ssh_exchange_identification: read: Connection reset by peer</code> ，最终搜索到了相关性更强的有价值的参考方案。</p><p><a href="http://dtoucoin.com/2017/05/20/Github的Push操作后提示Connection-reset-by-peer问题解决方法/" target="_blank" rel="noopener">http://dtoucoin.com/2017/05/20/Github的Push操作后提示Connection-reset-by-peer问题解决方法/</a></p></li><li><p>最后定位到：是图书馆 wifi 网络的防火墙或者代理服务器导致的连接不到 github。</p></li></ol><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol><li>遇到让你感到莫名其妙的问题时，先要理清思路，其次要有耐心，逐个可能性去排除，逐步逼近真相，找到最后的成因。</li><li>在用搜索引擎搜索解决方案时，要注意先想好跟问题相关性较强的关键词，否则会搜出很多相关性很弱的答案，既混淆你的思路和判断，又耗费你很多时间。</li><li>遇到之前能正常工作，突然就不能正常工作了这类问题时，要重点从对比前后的 <strong>变量</strong> 入手，看现象出现前和现在相比，哪些因素发生了变化？哪些环境发生了变化？通常都是某个特定的因素变化了，而导致的现在的现象。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      原因：图书馆 wifi 网络的防火墙或者代理服务器导致不能连接到 github。
+    
+    </summary>
+    
+      <category term="日常解决问题集锦" scheme="https://www.alankeene.com/categories/%E6%97%A5%E5%B8%B8%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6/"/>
+    
+    
+      <category term="hexo" scheme="https://www.alankeene.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>面试题：寻找一个字符串中出现次数最多的字符以及出现的次数</title>
