@@ -9,8 +9,9 @@ Share about Android and Technology.
 注：原 Github 地址将停止维护.
 
 # 博客精选原创文章
+- [算法题: 求 n! 的结果末尾有几个0](https://www.alankeene.com/2019/0708/calculate-zero-in-factorial.html)
 - [解决 ssh_exchange_identification: read: Connection reset by peer](https://www.alankeene.com/2019/0702/Connection-reset-by-peer.html)
-- [寻找一个字符串中出现次数最多的字符以及出现的次数](https://www.alankeene.com/2019/0619/Find-char-appear-more-frequently-in-String.html)
+- [算法题: 寻找一个字符串中出现次数最多的字符以及出现的次数](https://www.alankeene.com/2019/0619/Find-char-appear-more-frequently-in-String.html)
 - [Android事件分发过程源码阅读总结](https://www.alankeene.com/2019/0308/view-dispatch-process.html)
 - [Android事件分发机制的一些基本知识](https://www.alankeene.com/2019/0308/view-dispatch-basic-knowledge.html)
 - [Window 的添加过程](https://www.alankeene.com/2019/0303/add-window-process.html)
