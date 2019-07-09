@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2019-07-08T09:30:28.303Z</updated>
+  <updated>2019-07-09T10:36:11.364Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>探索CameraX (一) CameraX 是什么</title>
+    <link href="https://www.alankeene.com/2019/0709/cameraX-overview.html"/>
+    <id>https://www.alankeene.com/2019/0709/cameraX-overview.html</id>
+    <published>2019-07-09T07:49:07.000Z</published>
+    <updated>2019-07-09T10:36:11.364Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Google 最近推出了 Jetpack 新组件：CameraX。</p><p>Google 官方的介绍：”CameraX is a Jetpack support library, built to help you make camera app development easier.” 很好地诠释了这个库诞生的初衷和用途：<strong>帮助相机APP开发者更简单更轻松地实现摄像头功能的开发</strong>。</p><p>这对于做 Camera 开发的工程师来说是个好消息。</p><h1 id="CameraX-介绍"><a href="#CameraX-介绍" class="headerlink" title="CameraX 介绍"></a>CameraX 介绍</h1><p>在 Android 应用中要实现 Camera 功能还是比较困难的，为了保证在各品牌手机设备上的兼容性、响应速度等体验细节，Camera 应用的开发者往往需要花很大的时间和精力进行测试，甚至需要手动在数百种不同设备上进行测试。CameraX 正是为解决这个痛点而诞生的。</p><p>CameraX 是基于 Camera2 API 实现的，向后兼容到 Android 5.0（API Level 21）。</p><p>CameraX 的优势在于：</p><ul><li>CameraX 和 Lifecycle 结合在一起，方便开发者管理生命周期。且相比较 camera2 减少了大量样板代码的使用。</li><li>兼容至 Android L (API 21)，从而确保兼容到市面上绝大多数手机</li><li>开发者可以通过扩展的形式使用和原生摄像头应用同样的功能（如：人像、夜间模式、HDR、滤镜、美颜）</li><li>Google 自己还打造了 CameraX 自动化测试实验室，对摄像头功能进行深度测试，确保能覆盖到更加广泛的设备。相当于 Google 帮我们把设备兼容测试工作给做了。</li></ul><p>对于开发者来说，简单易用的 API、更少的模版代码、更强的兼容性，意味着更高的开发和测试效率。而丰富的扩展性则意味着开发者可以为用户们带来更多基于摄像头的光影体验。</p><blockquote><p>特别注明：CameraX 目前处于 alpha 版本，Google 官方并不推荐在生产环境中使用。可能会有较多的bug，后期 API 也可能有变化。</p></blockquote><h1 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h1><p>据 Google 官方介绍说，目前已经有不少团队开始尝试使用 CameraX，并且带来了很不错的效果。包括：Camera360、TikTok、Snapchat、Twitter 等。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文简要介绍了 CameraX 是什么，它的出现是为了解决现在的什么痛点以及它有什么优势。还介绍了目前有哪些团队正在采用和实践 CameraX。</p><p>期待 CameraX 能带来更多的新特性～</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://developer.android.com/training/camerax" target="_blank" rel="noopener">CameraX overview</a></p><p><a href="https://juejin.im/post/5d1c36f4e51d4510774a88bb" target="_blank" rel="noopener">摄像头功能开发不再复杂，CameraX 助您轻松打造光影体验</a></p><p><a href="https://joebirch.co/2019/05/15/exploring-camerax-on-android-camera-view/" target="_blank" rel="noopener">Exploring CameraX on Android: Camera View</a></p><p><a href="https://mp.weixin.qq.com/s/geCmI9XovmxyaA437JIewg" target="_blank" rel="noopener">Google Jetpack 新组件 CameraX 介绍与实践</a></p>]]></content>
+    
+    <summary type="html">
+    
+      摄像头功能开发不再复杂，CameraX 助您轻松打造光影体验
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.alankeene.com/categories/Android/"/>
+    
+    
+      <category term="CameraX" scheme="https://www.alankeene.com/tags/CameraX/"/>
+    
+  </entry>
   
   <entry>
     <title>面试题：计算 n！阶乘的结果的末尾有几个0</title>
@@ -102,9 +124,9 @@
       <category term="Android" scheme="https://www.alankeene.com/categories/Android/"/>
     
     
-      <category term="事件分发" scheme="https://www.alankeene.com/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
-    
       <category term="Android" scheme="https://www.alankeene.com/tags/Android/"/>
+    
+      <category term="事件分发" scheme="https://www.alankeene.com/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
     
   </entry>
   
@@ -126,9 +148,9 @@
       <category term="Android" scheme="https://www.alankeene.com/categories/Android/"/>
     
     
-      <category term="事件分发" scheme="https://www.alankeene.com/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
-    
       <category term="Android" scheme="https://www.alankeene.com/tags/Android/"/>
+    
+      <category term="事件分发" scheme="https://www.alankeene.com/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
     
   </entry>
   

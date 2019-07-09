@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://www.alankeene.com/2019/0709/cameraX-overview.html</loc>
+    <lastmod>2019-07-09T10:36:11.364Z</lastmod>
+    <data>
+        <display>
+        <title>探索CameraX (一) CameraX 是什么</title>
+        <pubTime>2019-07-09T07:49:07.000Z</pubTime>
+        
+        <tag>CameraX</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://www.alankeene.com/2019/0708/calculate-zero-in-factorial.html</loc>
     <lastmod>2019-07-08T09:30:28.303Z</lastmod>
     <data>
@@ -74,9 +94,9 @@
         <title>Android 事件分发过程源码阅读总结</title>
         <pubTime>2019-03-08T09:17:53.000Z</pubTime>
         
-        <tag>事件分发</tag>
-         
         <tag>Android</tag>
+         
+        <tag>事件分发</tag>
          
          
            
@@ -96,9 +116,9 @@
         <title>Android事件分发机制的一些基本知识</title>
         <pubTime>2019-03-08T08:02:47.000Z</pubTime>
         
-        <tag>事件分发</tag>
-         
         <tag>Android</tag>
+         
+        <tag>事件分发</tag>
          
          
            

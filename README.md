@@ -9,6 +9,7 @@ Share about Android and Technology.
 注：原 Github 地址将停止维护.
 
 # 博客精选原创文章
+- [探索CameraX (一) CameraX 是什么](https://www.alankeene.com/2019/0709/cameraX-overview.html)
 - [算法题: 求 n! 的结果末尾有几个0](https://www.alankeene.com/2019/0708/calculate-zero-in-factorial.html)
 - [解决 ssh_exchange_identification: read: Connection reset by peer](https://www.alankeene.com/2019/0702/Connection-reset-by-peer.html)
 - [算法题: 寻找一个字符串中出现次数最多的字符以及出现的次数](https://www.alankeene.com/2019/0619/Find-char-appear-more-frequently-in-String.html)

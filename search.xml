@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[探索CameraX (一) CameraX 是什么]]></title>
+    <url>%2F2019%2F0709%2FcameraX-overview.html</url>
+    <content type="text"><![CDATA[前言Google 最近推出了 Jetpack 新组件：CameraX。 Google 官方的介绍：”CameraX is a Jetpack support library, built to help you make camera app development easier.” 很好地诠释了这个库诞生的初衷和用途：帮助相机APP开发者更简单更轻松地实现摄像头功能的开发。 这对于做 Camera 开发的工程师来说是个好消息。 CameraX 介绍在 Android 应用中要实现 Camera 功能还是比较困难的，为了保证在各品牌手机设备上的兼容性、响应速度等体验细节，Camera 应用的开发者往往需要花很大的时间和精力进行测试，甚至需要手动在数百种不同设备上进行测试。CameraX 正是为解决这个痛点而诞生的。 CameraX 是基于 Camera2 API 实现的，向后兼容到 Android 5.0（API Level 21）。 CameraX 的优势在于： CameraX 和 Lifecycle 结合在一起，方便开发者管理生命周期。且相比较 camera2 减少了大量样板代码的使用。 兼容至 Android L (API 21)，从而确保兼容到市面上绝大多数手机 开发者可以通过扩展的形式使用和原生摄像头应用同样的功能（如：人像、夜间模式、HDR、滤镜、美颜） Google 自己还打造了 CameraX 自动化测试实验室，对摄像头功能进行深度测试，确保能覆盖到更加广泛的设备。相当于 Google 帮我们把设备兼容测试工作给做了。 对于开发者来说，简单易用的 API、更少的模版代码、更强的兼容性，意味着更高的开发和测试效率。而丰富的扩展性则意味着开发者可以为用户们带来更多基于摄像头的光影体验。 特别注明：CameraX 目前处于 alpha 版本，Google 官方并不推荐在生产环境中使用。可能会有较多的bug，后期 API 也可能有变化。 现状据 Google 官方介绍说，目前已经有不少团队开始尝试使用 CameraX，并且带来了很不错的效果。包括：Camera360、TikTok、Snapchat、Twitter 等。 总结本文简要介绍了 CameraX 是什么，它的出现是为了解决现在的什么痛点以及它有什么优势。还介绍了目前有哪些团队正在采用和实践 CameraX。 期待 CameraX 能带来更多的新特性～ 参考CameraX overview 摄像头功能开发不再复杂，CameraX 助您轻松打造光影体验 Exploring CameraX on Android: Camera View Google Jetpack 新组件 CameraX 介绍与实践]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>CameraX</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[面试题：计算 n！阶乘的结果的末尾有几个0]]></title>
     <url>%2F2019%2F0708%2Fcalculate-zero-in-factorial.html</url>
     <content type="text"><![CDATA[前言首先基于一个事实：我们不可能真的把 n! 的结果计算出来，再去数结果的末尾有几个0；n 很小还好，如果n很大，甚至趋近于无穷大，我们是不可能这样做的。原因主要有二： 一般计算机的计算能力和存储能力也有限，是计算不出那么大的数的。 即使计算机能算出来，这样做也很耗时，可能要算很久。 连计算机都算不出来，那我们怎么办呢？别慌，虽然我们不能直接算出结果，但我们可以把问题一步步拆解。 拆解思路首先，我们想什么情况下会产生一个0？ 诶，一个数乘以 10，在末尾就会多出一个 0。而 10 = 5 * 2。 一组数相乘的结果末尾有几个0，取决于这组数因式分解后有几对 5 和 2 的因子。 针对于 n! 这个题目，有这样一个事实：把相乘的数因式分解后，2 的个数肯定大于 5 的个数。 所以，这个问题可以拆解为：只要求出因式分解后有几个 5 的因子即可，5的个数即是末尾出现的0的个数。 解法一：直接法这种解法的思路是：直接将 n! 中的每个数，按照 5 来因式分解，最后把出现的 5 的个数加起来。 123456789101112131415public int calculateZeroInFactorial(int n) &#123; int count = 0; // 循环判断所有的乘数 for (int i = n; i &gt; 0; i++) &#123; if (i % 5 == 0) &#123; // 如果这个乘数可以对 5 进行因式分解，再看这个乘数可以分解出几个5 int a = i; while(a % 5 == 0) &#123; a = a / 5; count++; &#125; &#125; &#125; return count;&#125; 但是这种算法的时间复杂度为 O(nlog(n))，那有没有更快的算法呢？ 解法二： log(n) 解法分析： n! 这些乘数中，每隔 5 个数，肯定会有一个数至少能拆出一个 5 因子。所以 n / 5 = 至少会出现的 5 的个数。 上面说至少，因为 n / 5 并不能完全算出 5 因子的个数，比如若某个数 25 = 5 * 5，分解后得到的 5 也算一个，所以能被 25 因式分解相当于会出现 2 个 5 因子，而第一步中除以 5 算个数的时候已经算了一个了，所以相当于比之前会多一个 5 因子。 依此类推，能被 25 5 = 125 因式分解的相当于比之前按 25 因式分解的时候又多出一个 5 因子。能被 125 5 = 625 因式分解的相当于比按 125 因式分解时又多出一个 5 因子。还有 625 * 5 …… 所以，n! 的结果可以拆分为多少个 5 因子呢？ n/5 + n/25 + n /125 + n/625 + …. 比如 128！的阶乘的结果末尾有几个0呢？ 128/5 +128/25 + 128/125 = 25+5+1 = 31 个 又如：1247! 的阶乘的结果末尾有几个0呢？ 1247/5 + 1247/25 + 1247/125 + 1247/625 = 249+49+9+1 = 308 个 12345678public int calculateZeroInLogN(int n) &#123; int count = 0; while (n &gt; 0) &#123; count += n / 5; n /= 5; &#125; return count;&#125; 这种算法的时间复杂度为 O(log(n))，效率会高很多，而且仅需几行代码。]]></content>
@@ -42,8 +53,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>事件分发</tag>
         <tag>Android</tag>
+        <tag>事件分发</tag>
       </tags>
   </entry>
   <entry>
@@ -54,8 +65,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>事件分发</tag>
         <tag>Android</tag>
+        <tag>事件分发</tag>
       </tags>
   </entry>
   <entry>
