@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.alankeene.com/about/index.html</loc>
+    
+    <lastmod>2019-08-04T03:28:38.975Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.alankeene.com/2019/0709/cameraX-overview.html</loc>
     
     <lastmod>2019-07-09T10:36:11.364Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://www.alankeene.com/2019/0702/Connection-reset-by-peer.html</loc>
     
     <lastmod>2019-07-02T08:56:46.278Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.alankeene.com/about/index.html</loc>
-    
-    <lastmod>2019-07-02T05:47:33.303Z</lastmod>
     
   </url>
   
