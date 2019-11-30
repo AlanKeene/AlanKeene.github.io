@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2019-07-09T10:36:11.364Z</updated>
+  <updated>2019-11-30T15:53:54.661Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华强北复活</title>
+    <link href="https://www.alankeene.com/2019/1130/sz-huaqiangbei.html"/>
+    <id>https://www.alankeene.com/2019/1130/sz-huaqiangbei.html</id>
+    <published>2019-11-30T15:31:19.000Z</published>
+    <updated>2019-11-30T15:53:54.661Z</updated>
+    
+    <content type="html"><![CDATA[<p><a id="more"></a>  <img src="/images/huaqiangbei.jpeg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      赛格重生、华强复活。
+    
+    </summary>
+    
+      <category term="个人随笔" scheme="https://www.alankeene.com/categories/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="华强北" scheme="https://www.alankeene.com/tags/%E5%8D%8E%E5%BC%BA%E5%8C%97/"/>
+    
+  </entry>
   
   <entry>
     <title>探索CameraX (一) CameraX 是什么</title>

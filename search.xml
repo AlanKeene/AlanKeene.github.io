@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[华强北复活]]></title>
+    <url>%2F2019%2F1130%2Fsz-huaqiangbei.html</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>个人随笔</category>
+      </categories>
+      <tags>
+        <tag>华强北</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[探索CameraX (一) CameraX 是什么]]></title>
     <url>%2F2019%2F0709%2FcameraX-overview.html</url>
     <content type="text"><![CDATA[前言Google 最近推出了 Jetpack 新组件：CameraX。 Google 官方的介绍：”CameraX is a Jetpack support library, built to help you make camera app development easier.” 很好地诠释了这个库诞生的初衷和用途：帮助相机APP开发者更简单更轻松地实现摄像头功能的开发。 这对于做 Camera 开发的工程师来说是个好消息。 CameraX 介绍在 Android 应用中要实现 Camera 功能还是比较困难的，为了保证在各品牌手机设备上的兼容性、响应速度等体验细节，Camera 应用的开发者往往需要花很大的时间和精力进行测试，甚至需要手动在数百种不同设备上进行测试。CameraX 正是为解决这个痛点而诞生的。 CameraX 是基于 Camera2 API 实现的，向后兼容到 Android 5.0（API Level 21）。 CameraX 的优势在于： CameraX 和 Lifecycle 结合在一起，方便开发者管理生命周期。且相比较 camera2 减少了大量样板代码的使用。 兼容至 Android L (API 21)，从而确保兼容到市面上绝大多数手机 开发者可以通过扩展的形式使用和原生摄像头应用同样的功能（如：人像、夜间模式、HDR、滤镜、美颜） Google 自己还打造了 CameraX 自动化测试实验室，对摄像头功能进行深度测试，确保能覆盖到更加广泛的设备。相当于 Google 帮我们把设备兼容测试工作给做了。 对于开发者来说，简单易用的 API、更少的模版代码、更强的兼容性，意味着更高的开发和测试效率。而丰富的扩展性则意味着开发者可以为用户们带来更多基于摄像头的光影体验。 特别注明：CameraX 目前处于 alpha 版本，Google 官方并不推荐在生产环境中使用。可能会有较多的bug，后期 API 也可能有变化。 现状据 Google 官方介绍说，目前已经有不少团队开始尝试使用 CameraX，并且带来了很不错的效果。包括：Camera360、TikTok、Snapchat、Twitter 等。 总结本文简要介绍了 CameraX 是什么，它的出现是为了解决现在的什么痛点以及它有什么优势。还介绍了目前有哪些团队正在采用和实践 CameraX。 期待 CameraX 能带来更多的新特性～ 参考CameraX overview 摄像头功能开发不再复杂，CameraX 助您轻松打造光影体验 Exploring CameraX on Android: Camera View Google Jetpack 新组件 CameraX 介绍与实践]]></content>
