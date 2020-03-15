@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2019-11-30T15:53:54.661Z</updated>
+  <updated>2020-03-15T14:27:31.822Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac zsh 配置 adb 环境变量 &quot;zsh command not found adb&quot;</title>
+    <link href="https://www.alankeene.com/2020/0315/command-not-found-adb.html"/>
+    <id>https://www.alankeene.com/2020/0315/command-not-found-adb.html</id>
+    <published>2020-03-15T14:18:12.000Z</published>
+    <updated>2020-03-15T14:27:31.822Z</updated>
+    
+    <content type="html"><![CDATA[<p>“zsh: command not found: adb” 的解决方法：</p><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p><strong>已经成功安装了 Android Studio.</strong></p><p>打开 iTerm 终端依次输入下面命令：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">echo</span> <span class="string">'export ANDROID_HOME=/Users/<span class="variable">$USER</span>/Library/Android/sdk'</span> &gt;&gt; ~/.zshrc</span><br><span class="line">echo <span class="string">'export PATH=<span class="variable">$&#123;PATH&#125;</span>:<span class="variable">$ANDROID_HOME</span>/tools:<span class="variable">$ANDROID_HOME</span>/platform-tools'</span> &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure></p><p>然后保存设置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure></p><p>即可完成 adb 环境变量的配置。可通过     <code>adb version</code> 验证是否配置成功。</p><p><img src="https://img-blog.csdnimg.cn/20200308235357747.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1Njg0MDg1,size_16,color_FFFFFF,t_70" alt="zsh下配置adb"></p>]]></content>
+    
+    <summary type="html">
+    
+      mac zsh 配置 adb 环境变量
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.alankeene.com/categories/Android/"/>
+    
+    
+      <category term="adb" scheme="https://www.alankeene.com/tags/adb/"/>
+    
+  </entry>
   
   <entry>
     <title>华强北复活</title>

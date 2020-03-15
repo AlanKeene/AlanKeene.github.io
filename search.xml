@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mac zsh 配置 adb 环境变量 "zsh command not found adb"]]></title>
+    <url>%2F2020%2F0315%2Fcommand-not-found-adb.html</url>
+    <content type="text"><![CDATA[“zsh: command not found: adb” 的解决方法： 前提已经成功安装了 Android Studio. 打开 iTerm 终端依次输入下面命令：12echo 'export ANDROID_HOME=/Users/$USER/Library/Android/sdk' &gt;&gt; ~/.zshrcecho 'export PATH=$&#123;PATH&#125;:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools' &gt;&gt; ~/.zshrc 然后保存设置：1source ~/.zshrc 即可完成 adb 环境变量的配置。可通过 adb version 验证是否配置成功。]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>adb</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[华强北复活]]></title>
     <url>%2F2019%2F1130%2Fsz-huaqiangbei.html</url>
     <content type="text"><![CDATA[]]></content>
