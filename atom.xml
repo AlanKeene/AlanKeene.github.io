@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2020-03-15T14:27:31.822Z</updated>
+  <updated>2020-12-07T12:39:16.953Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo g -d 突然部署失败 ChildProcess.&lt;anonymous&gt; hexo/node_modules/hexo-util/lib/spawn.js:37:17</title>
+    <link href="https://www.alankeene.com/2020/1207/hexo-g-d-failed.html"/>
+    <id>https://www.alankeene.com/2020/1207/hexo-g-d-failed.html</id>
+    <published>2020-12-07T11:54:19.000Z</published>
+    <updated>2020-12-07T12:39:16.953Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前段时间忙于工作，有段时间没更新博客了，今天更新博客部署发现突然部署失败了。</p><p>刚开始根据报错信息，在网上搜索了一圈，各种答案都有，发现都不太准确，有的还说是git的版本问题要升到最新的git版本，为此我还升级了mac的系统和git的版本。但发现并不能解决问题。</p><p>最后，冷静下来分析报错的信息，突然有了方向，最后定位到是<strong>Coding 仓库的地址改变了导致的突然部署失败</strong>，也验证了自己的猜想是正确的。</p><p>我的博客是同时部署在 Github 和 Coding 上的，Coding 突然把仓库地址的规则改了，我也不知道，太坑了..</p><h1 id="原因分析思路"><a href="#原因分析思路" class="headerlink" title="原因分析思路"></a>原因分析思路</h1><p>分析问题的思路如下：</p><p><img src="/images/hexo-g-d-failed.png" alt="" title="hexo-g-d-failed"></p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>上 Coding 仓库上查看修改后的仓库地址，把 Coding 的部署地址修改过来就好了。<br>Coding部署地址的配置地方在：hexo 文件夹根目录的 _config.yml 文件里。如下：</p><p><img src="/images/Coding-deploy-address.png" alt="" title="Coding-deploy-address"></p><p>修改之后保存配置问题，重新 hexo g -d 生成并部署就可以部署成功了。问题解决。</p><p>至于博客源码仓库，我也是存放在Coding上的（之前Github还不支持私有仓库），不过上传博客源码的时候不用修改仓库目录， git push 的时候会自动重定向为Coding修改后的仓库地址。</p>]]></content>
+    
+    <summary type="html">
+    
+      Coding仓库地址更改了导致 hexo g -d 突然部署失败
+    
+    </summary>
+    
+      <category term="hexo博客" scheme="https://www.alankeene.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="hexo部署失败" scheme="https://www.alankeene.com/tags/hexo%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>mac zsh 配置 adb 环境变量 &quot;zsh command not found adb&quot;</title>
@@ -168,9 +190,9 @@
       <category term="Android" scheme="https://www.alankeene.com/categories/Android/"/>
     
     
-      <category term="Android" scheme="https://www.alankeene.com/tags/Android/"/>
-    
       <category term="事件分发" scheme="https://www.alankeene.com/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
+    
+      <category term="Android" scheme="https://www.alankeene.com/tags/Android/"/>
     
   </entry>
   
@@ -192,9 +214,9 @@
       <category term="Android" scheme="https://www.alankeene.com/categories/Android/"/>
     
     
-      <category term="Android" scheme="https://www.alankeene.com/tags/Android/"/>
-    
       <category term="事件分发" scheme="https://www.alankeene.com/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
+    
+      <category term="Android" scheme="https://www.alankeene.com/tags/Android/"/>
     
   </entry>
   

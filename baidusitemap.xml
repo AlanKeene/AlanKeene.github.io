@@ -3,6 +3,26 @@
 
 
     
+  <url>
+    <loc>https://www.alankeene.com/2020/1207/hexo-g-d-failed.html</loc>
+    <lastmod>2020-12-07T12:39:16.953Z</lastmod>
+    <data>
+        <display>
+        <title>hexo g -d 突然部署失败 ChildProcess.<anonymous> hexo/node_modules/hexo-util/lib/spawn.js:37:17</title>
+        <pubTime>2020-12-07T11:54:19.000Z</pubTime>
+        
+        <tag>hexo部署失败</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo博客" url="https://www.alankeene.com/categories/hexo%E5%8D%9A%E5%AE%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://www.alankeene.com/2020/0315/command-not-found-adb.html</loc>
@@ -134,9 +154,9 @@
         <title>Android 事件分发过程源码阅读总结</title>
         <pubTime>2019-03-08T09:17:53.000Z</pubTime>
         
-        <tag>Android</tag>
-         
         <tag>事件分发</tag>
+         
+        <tag>Android</tag>
          
          
            
@@ -156,9 +176,9 @@
         <title>Android事件分发机制的一些基本知识</title>
         <pubTime>2019-03-08T08:02:47.000Z</pubTime>
         
-        <tag>Android</tag>
-         
         <tag>事件分发</tag>
+         
+        <tag>Android</tag>
          
          
            
