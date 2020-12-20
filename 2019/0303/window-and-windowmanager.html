@@ -105,15 +105,18 @@
 
 
 
-  <meta name="keywords" content="Window,WindowManager">
+  <meta name="description" content="如果问你这三个问题，你的理解是什么呢。  Window 和 WindowManager 是什么关系？ Window 和 View 是什么关系？ WindowManager 和 View 是什么关系？">
+<meta name="keywords" content="Window,WindowManager">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Window、WindowManager、View 之间的关系">
 <meta property="og:url" content="https://www.alankeene.com/2019/0303/window-and-windowmanager.html">
 <meta property="og:site_name" content="Alan&#39;s Blog - Android">
+<meta property="og:description" content="如果问你这三个问题，你的理解是什么呢。  Window 和 WindowManager 是什么关系？ Window 和 View 是什么关系？ WindowManager 和 View 是什么关系？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-06T04:53:52.832Z">
+<meta property="og:updated_time" content="2020-12-20T05:43:58.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Window、WindowManager、View 之间的关系">
+<meta name="twitter:description" content="如果问你这三个问题，你的理解是什么呢。  Window 和 WindowManager 是什么关系？ Window 和 View 是什么关系？ WindowManager 和 View 是什么关系？">
 
 
 
@@ -509,7 +512,7 @@
                 
                   <span class="post-meta-item-text">字数统计：</span>
                 
-                <span title="字数统计">784 字</span>
+                <span title="字数统计">785 字</span>
               
 
               
@@ -543,12 +546,13 @@
       
 
       
-        <p><a id="more"></a>如果问你这三个问题，你的理解是什么呢。</p>
+        <p>如果问你这三个问题，你的理解是什么呢。</p>
 <ol>
 <li>Window 和 WindowManager 是什么关系？</li>
 <li>Window 和 View 是什么关系？</li>
 <li>WindowManager 和 View 是什么关系？</li>
 </ol>
+<a id="more"></a>
 <h1 id="Window-和-WindowManager-是什么关系？"><a href="#Window-和-WindowManager-是什么关系？" class="headerlink" title="Window 和 WindowManager 是什么关系？"></a>Window 和 WindowManager 是什么关系？</h1><p>Widow 是个抽象类，在 Android 中所有的视图都是通过 Window 来呈现的，包括 Activity、Dialog、Toast，它们的视图实际上都是附加在 Window 上的。Window 的具体实现类是 PhoneWindow。而 WindowManager 是外界访问 Window 的入口，WindowManager 和 WindowManagerService 之间通过 IPC 进行通信，从而实现对 Window 的访问和操作。</p>
 <h1 id="Window-和-View-是什么关系？"><a href="#Window-和-View-是什么关系？" class="headerlink" title="Window 和 View 是什么关系？"></a>Window 和 View 是什么关系？</h1><p>Window 是 View 的承载者，而 View 是 Window 的体现者。两者之间通过 ViewRootImpl 建立联系。</p>
 <p>怎么理解这句话呢？</p>

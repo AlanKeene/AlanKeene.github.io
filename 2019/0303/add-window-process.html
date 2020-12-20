@@ -105,15 +105,18 @@
 
 
 
-  <meta name="keywords" content="Window">
+  <meta name="description" content="Window 的添加过程Window(或者说View) 是怎么添加到 Android 系统中然后展示给用户的？让我们来探索一下 Window 的添加过程。">
+<meta name="keywords" content="Window">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Window 的添加过程">
 <meta property="og:url" content="https://www.alankeene.com/2019/0303/add-window-process.html">
 <meta property="og:site_name" content="Alan&#39;s Blog - Android">
+<meta property="og:description" content="Window 的添加过程Window(或者说View) 是怎么添加到 Android 系统中然后展示给用户的？让我们来探索一下 Window 的添加过程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-06T04:59:09.855Z">
+<meta property="og:updated_time" content="2020-12-20T05:51:47.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Window 的添加过程">
+<meta name="twitter:description" content="Window 的添加过程Window(或者说View) 是怎么添加到 Android 系统中然后展示给用户的？让我们来探索一下 Window 的添加过程。">
 
 
 
@@ -529,8 +532,6 @@
           
 
           
-              <div class="post-description"><!-- more --></div>
-          
 
         </div>
       </header>
@@ -546,6 +547,7 @@
 
       
         <h1 id="Window-的添加过程"><a href="#Window-的添加过程" class="headerlink" title="Window 的添加过程"></a>Window 的添加过程</h1><p>Window(或者说View) 是怎么添加到 Android 系统中然后展示给用户的？让我们来探索一下 Window 的添加过程。</p>
+<a id="more"></a>
 <h2 id="Window-添加过程的入口方法"><a href="#Window-添加过程的入口方法" class="headerlink" title="Window 添加过程的入口方法"></a>Window 添加过程的入口方法</h2><p>要探索添加的过程，必须先在源代码中找到添加 Window 的入口方法。</p>
 <p>Window 的添加需要通过 WindowManager 的 <code>addView</code> 方法实现，但 WindowManager 是个接口，它的真正实现类是 WindowManagerImpl 类，但 WindowManagerImpl 也并没有直接实现对 Window 的添加、删除、更新操作，而是通过桥接模式将所有操作委托给 WindowManagerGlobal 去实现。最终会调用 WindowManagerGlobal 类的 <code>addView</code> 方法真正开启 View 的添加过程。</p>
 <p>所有，Window 添加过程的真正入口方法实际上是 WindowManagerGlobal 类的 <code>addView</code>  方法。</p>

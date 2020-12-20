@@ -2,6 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.alankeene.com/2019/0308/view-dispatch-basic-knowledge.html</loc>
+    
+    <lastmod>2020-12-20T05:52:44.845Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.alankeene.com/2019/0308/view-dispatch-process.html</loc>
+    
+    <lastmod>2020-12-20T05:52:39.170Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.alankeene.com/2019/0303/add-window-process.html</loc>
+    
+    <lastmod>2020-12-20T05:51:47.921Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.alankeene.com/2019/0303/window-and-windowmanager.html</loc>
+    
+    <lastmod>2020-12-20T05:43:58.414Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.alankeene.com/2019/0219/why-string-imutable.html</loc>
+    
+    <lastmod>2020-12-20T05:36:34.871Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.alankeene.com/2019/0222/how-jdk-distinguish-object.html</loc>
+    
+    <lastmod>2020-12-20T05:34:05.661Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.alankeene.com/2019/0223/how-to-store-same-string-in-hashset.html</loc>
+    
+    <lastmod>2020-12-20T05:33:18.400Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.alankeene.com/2018/0618/use-dryrun-in-windows.html</loc>
+    
+    <lastmod>2020-12-20T05:20:32.104Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.alankeene.com/2020/1207/hexo-g-d-failed.html</loc>
     
     <lastmod>2020-12-07T12:39:16.953Z</lastmod>
@@ -58,55 +114,6 @@
   </url>
   
   <url>
-    <loc>https://www.alankeene.com/2019/0308/view-dispatch-process.html</loc>
-    
-    <lastmod>2019-03-08T11:13:22.060Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.alankeene.com/2019/0308/view-dispatch-basic-knowledge.html</loc>
-    
-    <lastmod>2019-03-08T09:13:15.316Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.alankeene.com/2019/0219/why-string-imutable.html</loc>
-    
-    <lastmod>2019-03-06T09:43:29.252Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.alankeene.com/2019/0223/how-to-store-same-string-in-hashset.html</loc>
-    
-    <lastmod>2019-03-06T05:34:01.188Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.alankeene.com/2019/0303/add-window-process.html</loc>
-    
-    <lastmod>2019-03-06T04:59:09.855Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.alankeene.com/2019/0303/window-and-windowmanager.html</loc>
-    
-    <lastmod>2019-03-06T04:53:52.832Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.alankeene.com/2019/0222/how-jdk-distinguish-object.html</loc>
-    
-    <lastmod>2019-03-06T04:34:44.587Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.alankeene.com/2019/0304/java-new-features.html</loc>
     
     <lastmod>2019-03-04T03:32:32.563Z</lastmod>
@@ -145,13 +152,6 @@
     <loc>https://www.alankeene.com/tags/index.html</loc>
     
     <lastmod>2019-01-02T07:23:26.290Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.alankeene.com/2018/0618/use-dryrun-in-windows.html</loc>
-    
-    <lastmod>2019-01-02T07:23:26.257Z</lastmod>
     
   </url>
   

@@ -105,15 +105,18 @@
 
 
 
-  <meta name="keywords" content="事件分发,Android">
+  <meta name="description" content="Android 事件分发过程的源码主要分为四大过程：  Activity 对点击事件的处理过程 Window 对点击事件的处理过程 顶级 ViewGroup 对点击事件的处理过程 View 对点击事件的处理过程">
+<meta name="keywords" content="事件分发,Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 事件分发过程源码阅读总结">
 <meta property="og:url" content="https://www.alankeene.com/2019/0308/view-dispatch-process.html">
 <meta property="og:site_name" content="Alan&#39;s Blog - Android">
+<meta property="og:description" content="Android 事件分发过程的源码主要分为四大过程：  Activity 对点击事件的处理过程 Window 对点击事件的处理过程 顶级 ViewGroup 对点击事件的处理过程 View 对点击事件的处理过程">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-08T11:13:22.060Z">
+<meta property="og:updated_time" content="2020-12-20T05:52:39.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 事件分发过程源码阅读总结">
+<meta name="twitter:description" content="Android 事件分发过程的源码主要分为四大过程：  Activity 对点击事件的处理过程 Window 对点击事件的处理过程 顶级 ViewGroup 对点击事件的处理过程 View 对点击事件的处理过程">
 
 
 
@@ -529,8 +532,6 @@
           
 
           
-              <div class="post-description"><!— more --></div>
-          
 
         </div>
       </header>
@@ -552,6 +553,7 @@
 <li>顶级 ViewGroup 对点击事件的处理过程</li>
 <li>View 对点击事件的处理过程</li>
 </ol>
+<a id="more"></a>
 <h1 id="Activity-对点击事件的处理过程"><a href="#Activity-对点击事件的处理过程" class="headerlink" title="Activity 对点击事件的处理过程"></a>Activity 对点击事件的处理过程</h1><p>当一个点击事件产生后，事件先传递给当前的 Activity，由 Activity 的 dispatchTouchEvent 方法进行事件派发。在内部具体的工作是由 Window 来完成的，Activity 将事件传递给了 Window。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ev.getAction() == MotionEvent.ACTION_DOWN) &#123;</span><br><span class="line">        onUserInteraction();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (getWindow.superDispatchTouchEvent(ev)) &#123; </span><br><span class="line">        <span class="comment">// 若 getWindow.superDispatchTouchEvent(ev) 返回true，则说明事件被 Window 处理了，整个事件就结束了</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment">// 若 getWindow.superDispatchTouchEvent(ev) 返回 false，则说明事件没人处理，会调用Activity的onTouchEvent 方法处理</span></span><br><span class="line">    <span class="keyword">return</span> onTouchEvent(ev);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="Window-对点击事件的处理过程"><a href="#Window-对点击事件的处理过程" class="headerlink" title="Window 对点击事件的处理过程"></a>Window 对点击事件的处理过程</h1><p>Window 是个抽象类，它的唯一实现类是 PhoneWindow，PhoneWindow 通过 superDispatchTouchEvent 方法内部调用 DecorView 的 superDispatchTouchEvent 方法将事件传递给 DecorView。由于 DecorView 继承自 FrameLayout，它是我们 Activity 布局的容器，是顶级的父 View，所以最终事件会传递给顶级的根 View，即我们通过 setContentView 设置的 View，一般来说都是 ViewGroup。</p>

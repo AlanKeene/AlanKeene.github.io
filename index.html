@@ -1842,10 +1842,16 @@
 
       
         
-          <!— more -->
+          <p>Android 事件分发过程的源码主要分为四大过程：</p>
+<ol>
+<li>Activity 对点击事件的处理过程</li>
+<li>Window 对点击事件的处理过程</li>
+<li>顶级 ViewGroup 对点击事件的处理过程</li>
+<li>View 对点击事件的处理过程</li>
+</ol>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/0308/view-dispatch-process.html">
+            <a class="btn" href="/2019/0308/view-dispatch-process.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2027,10 +2033,13 @@
 
       
         
-          <!—- more -->
+          <blockquote>
+<p>有一种学得快的方法，就是不要一次学太多。</p>
+</blockquote>
+<h1 id="什么是View的事件分发"><a href="#什么是View的事件分发" class="headerlink" title="什么是View的事件分发"></a>什么是View的事件分发</h1><p>在 Android 中，用户的在屏幕上的点击事件被抽象成 MotionEvent 这个类，点击事件的类型中比较重要的有 ACTION_DOWN、ACTION_MOVE、ACTION_UP 三种类型。当一个 MotionEvent 事件产生后，系统 需要把这个事件传递给一个具体的 View 来处理，而 MotionEvent 的这个分发过程，就叫 View 的事件分发过程。 </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/0308/view-dispatch-basic-knowledge.html">
+            <a class="btn" href="/2019/0308/view-dispatch-basic-knowledge.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
