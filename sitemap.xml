@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.alankeene.com/about/index.html</loc>
+    
+    <lastmod>2021-01-01T07:20:21.208Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.alankeene.com/2019/0308/view-dispatch-basic-knowledge.html</loc>
     
     <lastmod>2020-12-20T05:52:44.845Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>https://www.alankeene.com/2020/1207/hexo-g-d-failed.html</loc>
     
     <lastmod>2020-12-07T12:39:16.953Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.alankeene.com/about/index.html</loc>
-    
-    <lastmod>2020-12-05T08:00:40.776Z</lastmod>
     
   </url>
   
