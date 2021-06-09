@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://www.alankeene.com/2021/0609/HarmonyOS.html</loc>
+    <lastmod>2021-06-09T02:39:00.429Z</lastmod>
+    <data>
+        <display>
+        <title>聊聊华为鸿蒙发布会</title>
+        <pubTime>2021-06-09T02:31:33.000Z</pubTime>
+        
+        <tag>HarmonyOS</tag>
+         
+        <tag>华为鸿蒙发布会</tag>
+         
+         
+           
+             
+              <breadCrumb title="我的商业思考" url="https://www.alankeene.com/categories/%E6%88%91%E7%9A%84%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://www.alankeene.com/2021/0601/performance-optimization.html</loc>
     <lastmod>2021-06-01T04:08:22.583Z</lastmod>
     <data>
@@ -76,9 +98,9 @@
         <title>Android事件分发机制的一些基本知识</title>
         <pubTime>2019-03-08T08:02:47.000Z</pubTime>
         
-        <tag>事件分发</tag>
-         
         <tag>Android</tag>
+         
+        <tag>事件分发</tag>
          
          
            
@@ -98,9 +120,9 @@
         <title>Android 事件分发过程源码阅读总结</title>
         <pubTime>2019-03-08T09:17:53.000Z</pubTime>
         
-        <tag>事件分发</tag>
-         
         <tag>Android</tag>
+         
+        <tag>事件分发</tag>
          
          
            
@@ -513,26 +535,6 @@
     
     
   <url>
-    <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
-    <lastmod>2019-01-02T07:23:26.256Z</lastmod>
-    <data>
-        <display>
-        <title>Android 简史</title>
-        <pubTime>2018-04-17T05:36:17.000Z</pubTime>
-        
-        <tag>Android简史</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://www.alankeene.com/2018/0421/Android-Things.html</loc>
     <lastmod>2019-01-02T07:23:26.256Z</lastmod>
     <data>
@@ -548,6 +550,26 @@
            
              
               <breadCrumb title="Android Things" url="https://www.alankeene.com/categories/Android-Things/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.alankeene.com/2018/0417/Android-history.html</loc>
+    <lastmod>2019-01-02T07:23:26.256Z</lastmod>
+    <data>
+        <display>
+        <title>Android 简史</title>
+        <pubTime>2018-04-17T05:36:17.000Z</pubTime>
+        
+        <tag>Android简史</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://www.alankeene.com/categories/Android/"/>
           
         </display>
     </data>

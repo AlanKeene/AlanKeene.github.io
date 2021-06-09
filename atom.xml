@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2021-06-01T04:08:22.583Z</updated>
+  <updated>2021-06-09T02:39:00.429Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>聊聊华为鸿蒙发布会</title>
+    <link href="https://www.alankeene.com/2021/0609/HarmonyOS.html"/>
+    <id>https://www.alankeene.com/2021/0609/HarmonyOS.html</id>
+    <published>2021-06-09T02:31:33.000Z</published>
+    <updated>2021-06-09T02:39:00.429Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grbta1ameej30in0afgpb.jpg" alt="img"></p><p>今晚看了一小部分「2021 鸿蒙操作系统及华为全场景新品发布会」，作为一个在 AIOT 领域摸爬滚打快 4 年、目前也在做这方面工作的从业者，觉得还是可以聊一聊分享一下自己的看法。</p><p>其实 IOT 已经谈了好多年了，之前一直不温不火，甚至还有过一轮洗牌，有很多大大小小的企业杀进来然后又倒闭了，一直有两个主要的问题没有得到很好的解决：</p><ul><li>1.让物体能方便地<strong>移动上网</strong>。</li><li>2.让物体能产生数据、并能进行数据传输、数据交换和交互。</li></ul><p>但是，我们目前连第一个问题都没有得到很好的解决，更不用说第二个问题了。之前比较火的车联网，很多稍微老一点的车机都是需要连着手机上的热点才能上网的。还有很多智能家居设备，能上网，但是要么不是很便捷要么不能实现移动化，比如需要连着家里的 wifi，被限制在了一定的空间里面。</p><p>第一个问题更多不是技术上的问题，它更多的是一个商业上的问题。而第二个问题依赖于第一个问题的解决并且还考验资源整合能力才能很好的解决，第二个问题不是一般的公司都可以搞得好的。</p><p>第一个问题技术上的一个解决方案是 eSIM，我在 2019 年的时候了解过 eSIM，技术上其实比较成熟了，但商业上就没有那么简单，再加上市场用户习惯也还没形成，一直没有得到很广泛的推广和应用，只是在一些很小的场景里应用。</p><p>但是，这次发布会让我最惊喜的是 HUAWEI WATCH 3 可以把整个链条打通了，说明商业上是可以走通的，在我看来，这是 IOT 行业一次重大的进步。</p><p>而第二个问题，是离我们想象的万物智能互联世界最近的一环。前段时间的新闻：「<strong>大连某司机撞飞斑马线上的数人后逃逸，造成 4 死 3 伤</strong>」，那个视频我看了，真的很恐怖。</p><p>我当时在想，我们有没有办法可以避免类似的事故发生，红绿灯杆的报警器 + 摄像头就能做到。现在在国内稍微发达一点的城市，基础设施都发展得很不错了。像在深圳，摄像头到处都是，有很多十字路口的红绿灯杆也是带有报警系统的，可以通过摄像头检测异常超速的车辆然后提醒对应的报警系统进行报警提醒过马路的行人。但是就是缺乏设备之间的数据联动和沟通。当然我相信相关的从业人员也正在做一些这方面的事情，只是还没那么快。</p><p>大家别以为绿灯了我过马路就安全了，特定的社会环境下会产生一些特定的社会矛盾，酒驾的、有急事开飞车的、情绪突然激动或暴躁的、报复社会的、飙车的、新手司机、甚至现代人有很多近视的等等，我们没有办法控制外在的意外因素，但是可以注意自己的安全。</p><p>我看了那个视频之后现在走路都不敢玩手机了，过马路即使是绿灯，我也会等车子停定下来再走，走的时候还会不断左右两边看看有没有车辆冲过来。</p><p>最后，未来的世界会变得越来越好么？万物互联的世界会实现么？<br>我相信会的，那是我们无数人共同努力的结果。</p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1grbtaoatvtj30u00aywgr.jpg" alt="img"></p>]]></content>
+    
+    <summary type="html">
+    
+      聊聊华为鸿蒙发布会
+    
+    </summary>
+    
+      <category term="我的商业思考" scheme="https://www.alankeene.com/categories/%E6%88%91%E7%9A%84%E5%95%86%E4%B8%9A%E6%80%9D%E8%80%83/"/>
+    
+    
+      <category term="HarmonyOS" scheme="https://www.alankeene.com/tags/HarmonyOS/"/>
+    
+      <category term="华为鸿蒙发布会" scheme="https://www.alankeene.com/tags/%E5%8D%8E%E4%B8%BA%E9%B8%BF%E8%92%99%E5%8F%91%E5%B8%83%E4%BC%9A/"/>
+    
+  </entry>
   
   <entry>
     <title>分享一份app性能优化方案</title>
@@ -266,9 +290,9 @@
       <category term="Android" scheme="https://www.alankeene.com/categories/Android/"/>
     
     
-      <category term="事件分发" scheme="https://www.alankeene.com/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
-    
       <category term="Android" scheme="https://www.alankeene.com/tags/Android/"/>
+    
+      <category term="事件分发" scheme="https://www.alankeene.com/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
     
   </entry>
   
@@ -293,9 +317,9 @@
       <category term="Android" scheme="https://www.alankeene.com/categories/Android/"/>
     
     
-      <category term="事件分发" scheme="https://www.alankeene.com/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
-    
       <category term="Android" scheme="https://www.alankeene.com/tags/Android/"/>
+    
+      <category term="事件分发" scheme="https://www.alankeene.com/tags/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
     
   </entry>
   
