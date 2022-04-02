@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>三年二班陈同学 - Android</title>
+  <title>老陈Android馆</title>
   <icon>https://www.gravatar.com/avatar/25c1649ce608b07bd04ed65e3936d880</icon>
   
   <link href="/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://www.alankeene.com/</id>
   
   <author>
-    <name>Alan Keene</name>
+    <name>老陈</name>
     <email>alankeene0522@gmail.com</email>
   </author>
   
