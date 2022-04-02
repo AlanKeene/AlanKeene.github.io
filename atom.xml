@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2021-07-13T12:41:44.599Z</updated>
+  <updated>2022-04-02T18:20:17.253Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git修改远程仓库地址</title>
+    <link href="https://www.alankeene.com/2022/0403/git-modify-remote-url.html"/>
+    <id>https://www.alankeene.com/2022/0403/git-modify-remote-url.html</id>
+    <published>2022-04-02T18:19:02.000Z</published>
+    <updated>2022-04-02T18:20:17.253Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><p>今天push hexo 源代码到 coding 上时，报错说：</p><blockquote><p>atal: unable to access ‘<a href="https://git.dev.tencent.com/AlanKeene/hexo.git/&#39;" target="_blank" rel="noopener">https://git.dev.tencent.com/AlanKeene/hexo.git/&#39;</a>: Couldn’t connect to server</p></blockquote><p>猜测是 Coding 的地址又改了，登上 Coding 一看，果然没错。把仓库地址修改过来就好了。</p><h2 id="修改本地仓库关联的远程仓库地址"><a href="#修改本地仓库关联的远程仓库地址" class="headerlink" title="修改本地仓库关联的远程仓库地址"></a>修改本地仓库关联的远程仓库地址</h2><ol><li>进入项目的 **/.git 文件夹，<br> （是个隐藏文件夹）</li><li>找到 config 配置文件，修改关联的远程仓库地址，如下图：<br><img src="https://img-blog.csdnimg.cn/ee0a5986d2fa4bd782d2e7bdd6c76c6a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6ICB6ZmIQW5kcm9pZOmmhg==,size_18,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>修改完，git push 就能成功部署了。</li></ol><h6 id="也可以用git命令查看本地所关联的远程仓库地址"><a href="#也可以用git命令查看本地所关联的远程仓库地址" class="headerlink" title="也可以用git命令查看本地所关联的远程仓库地址"></a>也可以用git命令查看本地所关联的远程仓库地址</h6><blockquote><p>git remote -v</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      Git修改远程仓库地址
+    
+    </summary>
+    
+      <category term="Git" scheme="https://www.alankeene.com/categories/Git/"/>
+    
+    
+      <category term="Git" scheme="https://www.alankeene.com/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>Jetpack寻英贴发起，寻找50名Jetpack爱好者</title>
