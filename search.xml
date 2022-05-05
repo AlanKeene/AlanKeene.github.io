@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[华为机试题：出勤奖的判断]]></title>
+    <url>%2F2022%2F0506%2Faward.html</url>
+    <content type="text"><![CDATA[题目描述： 公司用一个字符串来标识员工的出勤信息。 absent: 缺勤 late: 迟到 leaveearly:早退 present: 正常上班 现需根据员工出勤信息,判断本次是否能获得出勤奖。 能获得出勤奖的条件如下： 缺勤不超过1次 没有连续的迟到/早退 任意连续7次考勤 缺勤/迟到/早退 不超过3次 输入描述： 用户的考勤数据字符串记录条数 &gt;=1，输入字符串长度 &lt;10000，不存在非法输入。 输出描述： 根据考勤数据字符串，如果能得到考勤奖输出true否则输出false。 示例： 输入： 2 present present present 输出： true true 输入： 2 present present absent present late present present present present leaveearly late present present 输出： true false 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283import java.util.ArrayList;import java.util.Arrays;import java.util.List;import java.util.Scanner;import java.util.stream.Collectors;public class Award &#123; public static void main(String[] args) &#123; Scanner sc = new Scanner(System.in); int n = sc.nextInt(); String s = canAward(n); System.out.println(s); &#125; public static String canAward(int n) &#123; Scanner sc = new Scanner(System.in); // 1：处理输入数据，转换成数组集合 ArrayList&lt;List&lt;String&gt;&gt; persons = new ArrayList&lt;&gt;(); for (int i = 0; i &lt; n; ++i) &#123; String[] days = sc.nextLine().split(" "); List&lt;String&gt; list = Arrays.stream(days).collect(Collectors.toList()); persons.add(list); &#125; sc.close(); StringBuilder sb = new StringBuilder(); for (List&lt;String&gt; person : persons) &#123; // rule 1: 缺勤超过1次的次数统计 long absent = person.stream() .filter(x -&gt; x.equals("absent")).count(); if (absent &gt; 1) &#123; sb.append("false").append(" "); continue; &#125; // rule 2: 没有连续的迟到/早退 boolean flag = true; for (int i = 0; i &lt; person.size() - 1; ++i) &#123; // 遍历到倒数第二项即可 String cur = person.get(i); // 当天的考勤 String next = person.get(i + 1); // 第二天的考勤 if (("late".equals(cur) || "leaveearly".equals(cur)) &amp;&amp; ("late".equals(next) || "leaveearly".equals(next))) &#123; flag = false; break; &#125; &#125; if (!flag) &#123; sb.append(flag).append(" "); continue; &#125; // rule 3: 任个意连续7天考勤 缺勤/迟到/早退 不能超过3次 for (int i = 0; i &lt; person.size() - 7; ++i) &#123; // 遍历到倒数第7项即可 List&lt;String&gt; days = new ArrayList&lt;&gt;(); // 连续7天的考勤记录 for (int j = 0; j &lt; 7; ++j) &#123; String day = person.get(i + j); days.add(day); &#125; // 分别统计缺勤/迟到/早退的次数 long absentCount = days.stream().filter(x -&gt; x.equals("absent")).count(); long lateCount = days.stream().filter(x -&gt; x.equals("late")).count(); long leaveEarlyCount = days.stream().filter(x -&gt; x.equals("leaveearly")).count(); long count = absentCount + lateCount + leaveEarlyCount; if (count &gt; 3) &#123; flag = false; break; &#125; &#125; if (!flag) &#123; sb.append(flag).append(" "); continue; &#125; else &#123; // 能拿出勤奖的人 sb.append(flag).append(" "); &#125; &#125; return sb.toString(); &#125;&#125;]]></content>
+      <categories>
+        <category>华为机试</category>
+      </categories>
+      <tags>
+        <tag>华为机试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git修改远程仓库地址]]></title>
     <url>%2F2022%2F0403%2Fgit-modify-remote-url.html</url>
     <content type="text"><![CDATA[问题描述：今天push hexo 源代码到 coding 上时，报错说： atal: unable to access ‘https://git.dev.tencent.com/AlanKeene/hexo.git/&#39;: Couldn’t connect to server 猜测是 Coding 的地址又改了，登上 Coding 一看，果然没错。把仓库地址修改过来就好了。 修改本地仓库关联的远程仓库地址 进入项目的 **/.git 文件夹， （是个隐藏文件夹） 找到 config 配置文件，修改关联的远程仓库地址，如下图：修改完，git push 就能成功部署了。 也可以用git命令查看本地所关联的远程仓库地址 git remote -v]]></content>
