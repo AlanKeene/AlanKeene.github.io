@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2022-05-06T09:08:27.077Z</updated>
+  <updated>2022-05-06T10:43:54.706Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>动态规划系列(三)：LeetCode 55. Jump Game(跳跃游戏)(用贪心算法优化时间复杂度)</title>
+    <link href="https://www.alankeene.com/2022/0506/jump-game-greedy.html"/>
+    <id>https://www.alankeene.com/2022/0506/jump-game-greedy.html</id>
+    <published>2022-05-06T10:41:23.000Z</published>
+    <updated>2022-05-06T10:43:54.706Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题目描述：</strong></p><ul><li><p>给定一个非负整数数组 nums ，你最初位于数组的第一个下标。</p></li><li><p>数组中的每个元素代表你在该位置可以跳跃的最大长度。</p></li><li><p>判断你是否能够到达最后一个下标。</p></li></ul><p><strong>示例 1：</strong></p><blockquote><p><strong>输入：</strong> nums = [2,3,1,1,4]<br><strong>输出：</strong> true<br><strong>解释：</strong> 可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。</p></blockquote><p><strong>示例 2：</strong></p><blockquote><p><strong>输入：</strong> nums = [3,2,1,0,4]<br><strong>输出：</strong> false<br><strong>解释：</strong> 无论怎样，总会到达下标为 3 的位置。但该下标的最大跳跃长度是 0 ，所以永远不可能到达最后一个下标。</p></blockquote><p><strong>提示：</strong></p><blockquote><p>1 &lt;= nums.length &lt;= 3 * 10的四次方<br>0 &lt;= nums[i] &lt;= 10的5次方</p></blockquote><p><strong>题解：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> AlanKeene</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2022/05/06</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Points</span> Greedy</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canJump</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> farthest = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="comment">// 能达到的最远距离小于i，说明不能往下跳了</span></span><br><span class="line">            <span class="keyword">if</span> (farthest &lt; i) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            farthest = Math.max(i + nums[i], farthest);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      动态规划系列(三)：LeetCode 55. Jump Game(跳跃游戏)(用贪心算法优化时间复杂度)
+    
+    </summary>
+    
+      <category term="算法" scheme="https://www.alankeene.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="贪心算法" scheme="https://www.alankeene.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>动态规划系列(三)：LeetCode 55. Jump Game(青蛙跳跃游戏)</title>
