@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2022-05-06T07:34:03.625Z</updated>
+  <updated>2022-05-06T08:16:53.851Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>动态规划系列(二)：LeetCode 62. Unique Paths(不同路径)</title>
+    <link href="https://www.alankeene.com/2022/0506/unique-paths.html"/>
+    <id>https://www.alankeene.com/2022/0506/unique-paths.html</id>
+    <published>2022-05-06T08:15:29.000Z</published>
+    <updated>2022-05-06T08:16:53.851Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题目描述：</strong></p><ul><li><p>一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。</p></li><li><p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。</p></li><li><p><strong>问总共有多少条不同的路径？</strong></p></li></ul><p><strong>示例 1：</strong><br><img src="https://img-blog.csdnimg.cn/1ae6f0aa522f4d3cb55c5414263c257c.png" alt="机器人走法"></p><blockquote><p><strong>输入：</strong> m = 3, n = 7<br><strong>输出：</strong> 28</p></blockquote><p><strong>示例 2：</strong></p><blockquote><p><strong>输入：</strong> m = 3, n = 2<br><strong>输出：</strong> 3<br><strong>解释：</strong>  从左上角开始，总共有 3 条路径可以到达右下角。</p><ol><li>向右 -&gt; 向下 -&gt; 向下</li><li>向下 -&gt; 向下 -&gt; 向右</li><li>向下 -&gt; 向右 -&gt; 向下</li></ol></blockquote><p><strong>示例 3：</strong></p><blockquote><p><strong>输入：</strong> m = 7, n = 3<br><strong>输出：</strong> 28</p></blockquote><p><strong>示例 4：</strong></p><blockquote><p><strong>输入：</strong> m = 3, n = 3<br><strong>输出：</strong> 6</p></blockquote><p><strong>提示：</strong></p><ul><li><code>1 &lt;= m, n &lt;= 100</code></li><li><code>题目数据保证答案小于等于 2 * 109</code></li></ul><p><strong>题解：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> AlanKeene</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2022/05/06</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Points</span> DP</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// step1: 初始化数组</span></span><br><span class="line">        <span class="keyword">int</span>[][] f = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// step2: 初始值：第一行和第一列都为1</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i) &#123;</span><br><span class="line">            f[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; ++j) &#123;</span><br><span class="line">            f[<span class="number">0</span>][j] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// step3: 转移方程：f[i][j] = f[i][j-1] + f[i-1][j];</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; ++j) &#123;</span><br><span class="line">                f[i][j] = f[i-<span class="number">1</span>][j] + f[i][j-<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> f[m-<span class="number">1</span>][n-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      动态规划系列(二)：LeetCode 62. Unique Paths(不同路径)
+    
+    </summary>
+    
+      <category term="算法" scheme="https://www.alankeene.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="动态规划" scheme="https://www.alankeene.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
   
   <entry>
     <title>动态规划系列：LeetCode 322. Coin Change(零钱兑换)</title>
