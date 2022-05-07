@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[华为机试题：字符串处理系列(一)]]></title>
+    <url>%2F2022%2F0507%2Fstring-handle.html</url>
+    <content type="text"><![CDATA[题目描述： 给定一个常数k，和一个字符串s，s中含有一个及以上的‘-’，以此来连接各个子串。 现对除了第一个子串之外的其他子串进行重新划分，每k个字符作为一个子串，使用‘-’连接， 同时子串需满足一下条件： 1.子串中若大写字母数量大于小写字母数量，则全部转换为大写；若大写字母数量小于小写字母数量，则全部转换为小写； 若大写字母数量等于小写字母数量，则不变。 2.若子串长度不足k，则剩下的字符组成一个子串。 示例1： 输入： 第一行为给定常数k，指定子串长度，第二行输入为字符串s。 3 124asd-ABCabc-abCABc@ 输出： 124asd-ABC-abc-abc-ABC-@ 题解： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162import java.util.Scanner;/** * @Author AlanKeene * @Date 2022/05/07 * @Points 字符串处理 */public class StringHandle &#123; public static void main(String[] args) &#123; Scanner sc = new Scanner(System.in); String k = sc.nextLine(); String s = sc.nextLine(); System.out.println(handleString(Integer.valueOf(k), s)); &#125; public static String handleString(int k, String s) &#123; StringBuilder sb = new StringBuilder(); String[] strs = s.split("-"); String otherString; // 先拼接出剩下子串 for (int i = 1; i &lt; strs.length; ++i) &#123; sb.append(strs[i]); &#125; otherString = sb.toString(); int length = otherString.length(); StringBuilder output = new StringBuilder(); output.append(strs[0]).append("-"); // 拼接第一个子串 // rule 1: 按k划分其他子串 while (length &gt; k) &#123; String newString = otherString.substring(0, k); otherString = otherString.substring(k); int upNums = 0; int lowNums = 0; for (int j = 0; j &lt; newString.length(); ++j) &#123; char ch = newString.charAt(j); if (ch &gt;= 'A' &amp;&amp; ch &lt;= 'Z') &#123; upNums++; &#125; else if (ch &gt;= 'a' &amp;&amp; ch &lt;= 'z') &#123; lowNums++; &#125; &#125; // rule 2: 大小写转换 if (upNums &gt; lowNums) &#123; // 全部转换成大写 newString = newString.toUpperCase(); &#125; else if (lowNums &gt; upNums) &#123; // 全部转换成小写 newString = newString.toLowerCase(); &#125; // 拼接到后面 output.append(newString).append("-"); // 长度减k length -= k; &#125; output.append(otherString); return output.toString(); &#125;&#125;]]></content>
+      <categories>
+        <category>华为机试题</category>
+      </categories>
+      <tags>
+        <tag>String处理系列</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SourceSet with name 'main' not found.]]></title>
+    <url>%2F2022%2F0507%2Fas-main-error.html</url>
+    <content type="text"><![CDATA[问题描述： Android Studio 上运行 main 方法报错： What went wrong:A problem occurred configuring project ‘:app’. Could not create task ‘:app:StringHandle.main()’. SourceSet with name &apos;main&apos; not found. 解决办法： 在.idea文件夹下的gradle.xml文件中添加，然后重新运行就可以了。]]></content>
+      <categories>
+        <category>使用AndroidStudio遇到的问题</category>
+      </categories>
+      <tags>
+        <tag>main方法运行报错</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[动态规划系列(四)：LeetCode 300. Longest Increasing Subsequence(最长递增子序列)]]></title>
     <url>%2F2022%2F0507%2Flongest-increasing-subsequence.html</url>
     <content type="text"><![CDATA[题目描述： 给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。 子序列 是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。 示例 1： 输入： nums = [10,9,2,5,3,7,101,18]输出： 4解释： 最长递增子序列是 [2,3,7,101]，因此长度为 4 。 示例 2： 输入： nums = [0,1,0,3,2,3]输出： 4 示例 3： 输入： nums = [7,7,7,7,7,7,7]输出： 1 提示： 1 &lt;= nums.length &lt;= 2500 -104 &lt;= nums[i] &lt;= 104 题解：1234567891011121314151617181920212223242526272829303132/** * @Author AlanKeene * @Date 2022/05/07 * @Points DP */class Solution &#123; public int lengthOfLIS(int[] nums) &#123; // step 1: 初始化数组 int n = nums.length; int[] dp = new int[n]; // step 2: 初始值 dp[0] = 1; int maxLength = 1; // step 3: 计算顺序：从左到右 for (int i = 1; i &lt; n; ++i) &#123; // 默认值 dp[i] = 1; // step 4: 状态转移方程 // dp[i] = max(dp[j]) + 1 AND 0 &lt;= j &lt; i &amp;&amp; nums[i] &gt; nums[j] for (int j = 0; j &lt; i; ++j) &#123; if (nums[i] &gt; nums[j]) &#123; dp[i] = Math.max(dp[j] + 1, dp[i]); &#125; &#125; maxLength = Math.max(dp[i], maxLength); &#125; return maxLength; &#125;&#125;]]></content>

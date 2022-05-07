@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>https://www.alankeene.com/2022/0507/string-handle.html</loc>
+    <lastmod>2022-05-07T13:22:38.158Z</lastmod>
+    <data>
+        <display>
+        <title>华为机试题：字符串处理系列(一)</title>
+        <pubTime>2022-05-07T13:19:14.000Z</pubTime>
+        
+        <tag>String处理系列</tag>
+         
+         
+           
+             
+              <breadCrumb title="华为机试题" url="https://www.alankeene.com/categories/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95%E9%A2%98/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://www.alankeene.com/2022/0507/as-main-error.html</loc>
+    <lastmod>2022-05-07T13:18:42.781Z</lastmod>
+    <data>
+        <display>
+        <title>SourceSet with name 'main' not found.</title>
+        <pubTime>2022-05-07T12:52:30.000Z</pubTime>
+        
+        <tag>main方法运行报错</tag>
+         
+         
+           
+             
+              <breadCrumb title="使用AndroidStudio遇到的问题" url="https://www.alankeene.com/categories/%E4%BD%BF%E7%94%A8AndroidStudio%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://www.alankeene.com/2022/0507/longest-increasing-subsequence.html</loc>
     <lastmod>2022-05-06T16:59:35.373Z</lastmod>
     <data>
