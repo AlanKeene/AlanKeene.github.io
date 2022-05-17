@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2022-05-07T13:22:38.158Z</updated>
+  <updated>2022-05-17T13:45:01.641Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试题：滑动窗口最大和</title>
+    <link href="https://www.alankeene.com/2022/0517/max-sliding-window-sum.html"/>
+    <id>https://www.alankeene.com/2022/0517/max-sliding-window-sum.html</id>
+    <published>2022-05-17T13:35:28.000Z</published>
+    <updated>2022-05-17T13:45:01.641Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题目描述：</strong></p><ul><li>有一个N个整数的数组和一个长度为M的窗口。</li><li>窗口从数组内的第一个数开始滑动，直到窗口不能滑动为止。</li><li>每次滑动产生一个窗口 和窗口内所有数的和。</li><li>求窗口滑动产生的所有窗口和的最大值。</li></ul><p><strong>输入描述：</strong></p><ul><li>第一行输入一个正整数N，表示整数个数 0&lt;N&lt;100000。</li><li>第二行输入N个整数，整数取值范围 [-100,100]。</li><li>第三行输入正整数M，M代表窗口的大小，M&lt;=100000 并&lt;=N。</li></ul><p><strong>输出描述：</strong></p><ul><li>窗口滑动产生所有窗口和的最大值</li></ul><p><strong>示例:</strong></p><blockquote><p><strong>输入：</strong><br>6<br>12 10 20 30 15 23<br>3<br><strong>输出：</strong><br>68</p></blockquote><p><strong>题解：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span> (sc.hasNext()) &#123;</span><br><span class="line">            <span class="keyword">int</span> n = Integer.parseInt(sc.nextLine());</span><br><span class="line">            String[] strs = sc.nextLine().split(<span class="string">" "</span>);</span><br><span class="line">            <span class="keyword">int</span> m = Integer.parseInt(sc.nextLine());</span><br><span class="line">            <span class="comment">// 处理输入</span></span><br><span class="line">            <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">                arr[i] = Integer.parseInt(strs[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 滑动窗口往后移动</span></span><br><span class="line">            <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n - m; ++i) &#123;</span><br><span class="line">                <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; i + m; ++j) &#123;</span><br><span class="line">                    sum += arr[j];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (max &lt; sum) &#123;</span><br><span class="line">                    max = sum;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            System.out.println(max);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      求窗口滑动产生所有窗口和的最大值
+    
+    </summary>
+    
+      <category term="华为机试题" scheme="https://www.alankeene.com/categories/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95%E9%A2%98/"/>
+    
+    
+      <category term="滑动窗口" scheme="https://www.alankeene.com/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试题：字符串处理系列(一)</title>
