@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.alankeene.com/"/>
-  <updated>2022-05-17T13:47:53.642Z</updated>
+  <updated>2022-05-17T14:01:32.485Z</updated>
   <id>https://www.alankeene.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试题：求最小数(移掉K位数字)</title>
+    <link href="https://www.alankeene.com/2022/0517/remove-k-number.html"/>
+    <id>https://www.alankeene.com/2022/0517/remove-k-number.html</id>
+    <published>2022-05-17T13:58:52.000Z</published>
+    <updated>2022-05-17T14:01:32.485Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题目描述：</strong></p><ul><li>给你一个以字符串表示的非负整数 num 和一个整数 k ，移除这个数中的 k 位数字，使得剩下的数字最小。请你以字符串形式返回这个最小的数字。</li></ul><p><strong>示例：</strong></p><blockquote><p>输入：num = “1432219”, k = 3<br>输出：”1219”<br>解释：移除掉三个数字 4, 3, 和 2 形成一个新的最小的数字 1219 。</p></blockquote><p><strong>题解：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span> (sc.hasNext()) &#123;</span><br><span class="line">            String s = sc.nextLine();</span><br><span class="line">            <span class="keyword">int</span> k = sc.nextInt();</span><br><span class="line">            System.out.println(removeKnums(s, k));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">removeKnums</span><span class="params">(String num, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        Deque&lt;Character&gt; deque = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> len = num.length();</span><br><span class="line">        <span class="comment">//单调栈判断</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i) &#123;</span><br><span class="line">            <span class="keyword">char</span> digit = num.charAt(i);</span><br><span class="line">            <span class="comment">// 判断当前是否大于栈顶</span></span><br><span class="line">            <span class="keyword">while</span> (!deque.isEmpty() &amp;&amp; k &gt; <span class="number">0</span> &amp;&amp; deque.peekLast() &gt; digit) &#123;</span><br><span class="line">                deque.pollLast();</span><br><span class="line">                k--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//加入最后一个位置</span></span><br><span class="line">            deque.offerLast(digit);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i) &#123;</span><br><span class="line">            deque.pollLast();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//返回最终结果</span></span><br><span class="line">        StringBuilder res = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">boolean</span> leadingZero = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">while</span> (!deque.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">char</span> digit = deque.pollFirst();</span><br><span class="line">            <span class="comment">//是否遇到0</span></span><br><span class="line">            <span class="keyword">if</span> (leadingZero &amp;&amp; digit == <span class="string">'0'</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            leadingZero = <span class="keyword">false</span>;</span><br><span class="line">            res.append(digit);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res.length() == <span class="number">0</span> ? <span class="string">"0"</span> : res.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      华为机试题：求最小数(移掉K位数字)
+    
+    </summary>
+    
+      <category term="华为机试" scheme="https://www.alankeene.com/categories/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+    
+      <category term="华为机试" scheme="https://www.alankeene.com/tags/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>华为机试题：滑动窗口最大和</title>

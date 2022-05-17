@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[华为机试题：求最小数(移掉K位数字)]]></title>
+    <url>%2F2022%2F0517%2Fremove-k-number.html</url>
+    <content type="text"><![CDATA[题目描述： 给你一个以字符串表示的非负整数 num 和一个整数 k ，移除这个数中的 k 位数字，使得剩下的数字最小。请你以字符串形式返回这个最小的数字。 示例： 输入：num = “1432219”, k = 3输出：”1219”解释：移除掉三个数字 4, 3, 和 2 形成一个新的最小的数字 1219 。 题解： 1234567891011121314151617181920212223242526272829303132333435363738394041424344public class Main &#123; public static void main(String[] args) &#123; Scanner sc = new Scanner(System.in); while (sc.hasNext()) &#123; String s = sc.nextLine(); int k = sc.nextInt(); System.out.println(removeKnums(s, k)); &#125; &#125; public static String removeKnums(String num, int k) &#123; // write code here Deque&lt;Character&gt; deque = new LinkedList&lt;&gt;(); int len = num.length(); //单调栈判断 for (int i = 0; i &lt; len; ++i) &#123; char digit = num.charAt(i); // 判断当前是否大于栈顶 while (!deque.isEmpty() &amp;&amp; k &gt; 0 &amp;&amp; deque.peekLast() &gt; digit) &#123; deque.pollLast(); k--; &#125; //加入最后一个位置 deque.offerLast(digit); &#125; for (int i = 0; i &lt; k; ++i) &#123; deque.pollLast(); &#125; //返回最终结果 StringBuilder res = new StringBuilder(); boolean leadingZero = true; while (!deque.isEmpty()) &#123; char digit = deque.pollFirst(); //是否遇到0 if (leadingZero &amp;&amp; digit == '0') &#123; continue; &#125; leadingZero = false; res.append(digit); &#125; return res.length() == 0 ? "0" : res.toString(); &#125;&#125;]]></content>
+      <categories>
+        <category>华为机试</category>
+      </categories>
+      <tags>
+        <tag>华为机试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[华为机试题：滑动窗口最大和]]></title>
     <url>%2F2022%2F0517%2Fmax-sliding-window-sum.html</url>
     <content type="text"><![CDATA[题目描述： 有一个N个整数的数组和一个长度为M的窗口。 窗口从数组内的第一个数开始滑动，直到窗口不能滑动为止。 每次滑动产生一个窗口 和窗口内所有数的和。 求窗口滑动产生的所有窗口和的最大值。 输入描述： 第一行输入一个正整数N，表示整数个数 0&lt;N&lt;100000。 第二行输入N个整数，整数取值范围 [-100,100]。 第三行输入正整数M，M代表窗口的大小，M&lt;=100000 并&lt;=N。 输出描述： 窗口滑动产生所有窗口和的最大值 示例: 输入：612 10 20 30 15 233输出：68 题解： 12345678910111213141516171819202122232425262728293031import java.util.*;public class Main &#123; public static void main(String[] args) &#123; Scanner sc = new Scanner(System.in); while (sc.hasNext()) &#123; int n = Integer.parseInt(sc.nextLine()); String[] strs = sc.nextLine().split(" "); int m = Integer.parseInt(sc.nextLine()); // 处理输入 int[] arr = new int[n]; for (int i = 0; i &lt; n; ++i) &#123; arr[i] = Integer.parseInt(strs[i]); &#125; // 滑动窗口往后移动 int max = 0; for (int i = 0; i &lt;= n - m; ++i) &#123; int sum = 0; for (int j = i; j &lt; i + m; ++j) &#123; sum += arr[j]; &#125; if (max &lt; sum) &#123; max = sum; &#125; &#125; System.out.println(max); &#125; &#125;&#125;]]></content>
